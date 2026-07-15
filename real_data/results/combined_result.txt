@@ -1,0 +1,38 @@
+combined controls | face regressor 4316s (72%) | n=20
+  sub- 1 (193s): L real +0.0023 null +0.0006 | emoOb +0.0024->+FACE +0.0024 | emoOvit +0.0047 resOvit +0.0039
+  sub- 2 (367s): L real +0.0023 null +0.0010 | emoOb +0.0024->+FACE +0.0023 | emoOvit +0.0042 resOvit +0.0023
+  sub- 3 (584s): L real +0.0009 null +0.0003 | emoOb +0.0009->+FACE +0.0009 | emoOvit +0.0024 resOvit +0.0029
+  sub- 4 (768s): L real +0.0021 null +0.0007 | emoOb +0.0021->+FACE +0.0021 | emoOvit +0.0047 resOvit +0.0046
+  sub- 5 (935s): L real +0.0013 null +0.0001 | emoOb +0.0014->+FACE +0.0014 | emoOvit +0.0034 resOvit +0.0044
+  sub- 6 (1114s): L real +0.0013 null +0.0006 | emoOb +0.0011->+FACE +0.0011 | emoOvit +0.0035 resOvit +0.0040
+  sub- 7 (1255s): L real +0.0012 null +0.0040 | emoOb +0.0003->+FACE +0.0006 | emoOvit -0.0108 resOvit -0.0096
+  sub- 8 (1453s): L real +0.0009 null -0.0003 | emoOb +0.0009->+FACE +0.0009 | emoOvit +0.0025 resOvit +0.0031
+  sub- 9 (1603s): L real +0.0017 null +0.0008 | emoOb +0.0019->+FACE +0.0019 | emoOvit +0.0048 resOvit +0.0057
+  sub-10 (1795s): L real +0.0016 null -0.0000 | emoOb +0.0015->+FACE +0.0015 | emoOvit +0.0037 resOvit +0.0032
+  sub-11 (1953s): L real +0.0022 null +0.0009 | emoOb +0.0023->+FACE +0.0023 | emoOvit +0.0044 resOvit +0.0036
+  sub-12 (2106s): L real +0.0015 null +0.0006 | emoOb +0.0014->+FACE +0.0015 | emoOvit +0.0051 resOvit +0.0077
+  sub-13 (2265s): L real +0.0024 null +0.0006 | emoOb +0.0025->+FACE +0.0026 | emoOvit +0.0049 resOvit +0.0037
+  sub-14 (2392s): L real +0.0011 null +0.0005 | emoOb +0.0011->+FACE +0.0011 | emoOvit +0.0025 resOvit +0.0021
+  sub-15 (2500s): L real +0.0041 null +0.0001 | emoOb +0.0047->+FACE +0.0048 | emoOvit +0.0101 resOvit +0.0095
+  sub-16 (2616s): L real +0.0016 null +0.0009 | emoOb +0.0017->+FACE +0.0017 | emoOvit +0.0039 resOvit +0.0043
+  sub-17 (2715s): L real -0.0033 null -0.0059 | emoOb -0.0029->+FACE -0.0037 | emoOvit -0.0014 resOvit +0.0010
+  sub-18 (2855s): L real +0.0013 null +0.0007 | emoOb +0.0013->+FACE +0.0013 | emoOvit +0.0029 resOvit +0.0029
+  sub-19 (2962s): L real +0.0016 null +0.0006 | emoOb +0.0017->+FACE +0.0017 | emoOvit +0.0036 resOvit +0.0041
+  sub-20 (3055s): L real -0.0008 null -0.0038 | emoOb -0.0009->+FACE -0.0008 | emoOvit +0.0053 resOvit +0.0054
+
+=== TEMPORAL-NULL: aligned vs misaligned-EmoNet (n=20) ===
+  L-amyg    aligned +0.0014(p0.000) | misaligned +0.0002(p0.728) | aligned-minus-misaligned +0.0012 t=+4.16 p=0.0005
+  R-amyg    aligned +0.0016(p0.000) | misaligned -0.0001(p0.909) | aligned-minus-misaligned +0.0017 t=+5.58 p=0.0000
+  Fusiform  aligned +0.0097(p0.000) | misaligned +0.0048(p0.001) | aligned-minus-misaligned +0.0049 t=+4.36 p=0.0003
+
+=== FACE CONFOUND: EmoNet-unique over [ViT+ResNet+low] with vs without FACE in baseline ===
+  L-amyg    face-only R^2 -0.0002(p0.000) | emoOVERbase +0.0014(p0.000) -> +FACE +0.0014(p0.001) | absorbed +0.0000(p0.955)
+  R-amyg    face-only R^2 -0.0002(p0.000) | emoOVERbase +0.0016(p0.000) -> +FACE +0.0016(p0.000) | absorbed +0.0000(p0.981)
+  Fusiform  face-only R^2 +0.0013(p0.000) | emoOVERbase +0.0084(p0.000) -> +FACE +0.0093(p0.000) | absorbed -0.0008(p0.086)
+
+=== 2nd-OBJECT: EmoNet-over-ViT vs ResNet-over-ViT (is a 2nd object encoder as good as EmoNet?) ===
+  L-amyg    EmoNet-o-ViT +0.0032(p0.002) | ResNet-o-ViT +0.0034(p0.000) | Emo-minus-Res -0.0002 t=-0.91 p=0.3756
+  R-amyg    EmoNet-o-ViT +0.0039(p0.000) | ResNet-o-ViT +0.0035(p0.000) | Emo-minus-Res +0.0005 t=+1.43 p=0.1695
+  Fusiform  EmoNet-o-ViT -0.0038(p0.001) | ResNet-o-ViT -0.0103(p0.000) | Emo-minus-Res +0.0066 t=+3.37 p=0.0032
+
+DONE (3055s)

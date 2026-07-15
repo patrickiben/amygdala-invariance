@@ -1,0 +1,6 @@
+=== MAGNITUDE-PRESERVING profile-RDM RSA (neural |a_i-a_j| vs encoder RDM), n=19 ===
+  L-amyg    faceEmo-resnet +0.010(p0.646) | kragel-resnet +0.029(p0.167)
+  R-amyg    faceEmo-resnet +0.003(p0.925) | kragel-resnet +0.009(p0.643)
+  Fusiform  faceEmo-resnet -0.014(p0.444) | kragel-resnet +0.002(p0.915)
+  V1        faceEmo-resnet +0.022(p0.416) | kragel-resnet -0.001(p0.975)
+(1-D morph continuum -> all encoders monotonic -> profile-RDM cannot dissociate; discrimination is in pattern-RSA only)

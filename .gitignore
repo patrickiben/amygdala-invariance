@@ -1,0 +1,32 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# --- Regenerable exploratory synthetic results (TOP-LEVEL ONLY) ---
+# The previous bare `results/` matched EVERY dir named results at any depth,
+# which wrongly excluded the manuscript evidence logs under real_data/. A leading
+# slash anchors the pattern to the repo root, so ONLY the top-level results/ is
+# ignored. real_data/results/ and real_data/sun2023/results/ live below the root
+# and are therefore NOT matched -> they are committed.
+/results/
+
+# --- Fetched public data (never redistribute) ---
+# Anchor to the top-level data/ cache, but keep the wiring README.
+/data/*
+!/data/README.md
+
+# --- Raw / derived-data leak guard (none present today; defensive) ---
+# The copyrighted film, raw fMRI, single-neuron firing-rate .mat, and cached
+# feature arrays must never enter the permanent Zenodo archive.
+*.nii
+*.nii.gz
+*.npz
+*.npy
+*.mat
+*.pt
+*.h5
+*.pkl
+*.mp4
+*.wav
+*.jpg

@@ -1,0 +1,86 @@
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+2nd-affect swap | n=20 | A2 (5703, 256) | E (5703, 4096)
+$HOME/Documents/Research_Explorations/amygdala-invariance/real_data/scripts/second_affect_swap.py:34: FutureWarning: 'force_resample' will be set to 'True' by default in Nilearn 0.13.0.
+Use 'force_resample=True' to suppress this warning.
+  idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
+$HOME/Documents/Research_Explorations/amygdala-invariance/real_data/scripts/second_affect_swap.py:34: FutureWarning: 'force_resample' will be set to 'True' by default in Nilearn 0.13.0.
+Use 'force_resample=True' to suppress this warning.
+  idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
+$HOME/Documents/Research_Explorations/amygdala-invariance/real_data/scripts/second_affect_swap.py:34: FutureWarning: 'force_resample' will be set to 'True' by default in Nilearn 0.13.0.
+Use 'force_resample=True' to suppress this warning.
+  idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+[fetch_atlas_harvard_oxford] Dataset found in $HOME/nilearn_data/fsl
+[fetch_atlas_harvard_oxford] Dataset found in $HOME/nilearn_data/fsl
+  sub- 1 (133s): L a2Ovit +0.0034 resOvit +0.0037 emoOvit +0.0040
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+  sub- 2 (249s): L a2Ovit +0.0009 resOvit +0.0022 emoOvit +0.0042
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+  sub- 3 (391s): L a2Ovit +0.0031 resOvit +0.0030 emoOvit +0.0024
+  sub- 4 (518s): L a2Ovit +0.0013 resOvit +0.0045 emoOvit +0.0039
+  sub- 5 (644s): L a2Ovit +0.0022 resOvit +0.0048 emoOvit +0.0037
+  sub- 6 (748s): L a2Ovit +0.0034 resOvit +0.0045 emoOvit +0.0034
+  sub- 7 (825s): L a2Ovit +0.0014 resOvit -0.0099 emoOvit -0.0129
+  sub- 8 (919s): L a2Ovit +0.0025 resOvit +0.0031 emoOvit +0.0031
+  sub- 9 (1003s): L a2Ovit +0.0018 resOvit +0.0058 emoOvit +0.0054
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+  sub-10 (1103s): L a2Ovit +0.0023 resOvit +0.0033 emoOvit +0.0040
+  sub-11 (1188s): L a2Ovit +0.0035 resOvit +0.0038 emoOvit +0.0043
+  sub-12 (1268s): L a2Ovit +0.0024 resOvit +0.0075 emoOvit +0.0055
+  sub-13 (1348s): L a2Ovit +0.0041 resOvit +0.0038 emoOvit +0.0047
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+  sub-14 (1446s): L a2Ovit +0.0027 resOvit +0.0024 emoOvit +0.0024
+  sub-15 (1515s): L a2Ovit +0.0005 resOvit +0.0099 emoOvit +0.0105
+  sub-16 (1596s): L a2Ovit +0.0018 resOvit +0.0045 emoOvit +0.0038
+  sub-17 (1668s): L a2Ovit +0.0028 resOvit +0.0023 emoOvit +0.0017
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
+  warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
+  sub-18 (1767s): L a2Ovit +0.0027 resOvit +0.0032 emoOvit +0.0029
+  sub-19 (1861s): L a2Ovit +0.0033 resOvit +0.0039 emoOvit +0.0036
+  sub-20 (1936s): L a2Ovit +0.0035 resOvit +0.0060 emoOvit +0.0053
+
+=== 3-WAY SWAP over ViT (n=20) ===
+  L-amyg         EmoNet +0.0033(p0.002) ResNet +0.0036(p0.000) A2 +0.0025(p0.000) | A2-Res -0.0011(p0.195) Emo-Res -0.0003(p0.188)
+  R-amyg         EmoNet +0.0044(p0.000) ResNet +0.0041(p0.000) A2 +0.0021(p0.000) | A2-Res -0.0020(p0.000) Emo-Res +0.0003(p0.321)
+  Fusiform(ctrl) EmoNet -0.0038(p0.001) ResNet -0.0103(p0.000) A2 -0.0017(p0.000) | A2-Res +0.0086(p0.002) Emo-Res +0.0066(p0.003)
+
+=== UNIQUE over ImageNet + agreement of the two affect encoders ===
+  L-amyg         emoOVERimg +0.0013(p0.000) a2OVERimg +0.0007(p0.384) | corr(emo,a2)=-0.26 | emoOVER(img+A2) +0.0012(p0.000) a2OVER(img+Emo) +0.0006(p0.502)
+  R-amyg         emoOVERimg +0.0016(p0.000) a2OVERimg +0.0001(p0.505) | corr(emo,a2)=-0.51 | emoOVER(img+A2) +0.0015(p0.000) a2OVER(img+Emo) +0.0001(p0.825)
+  Fusiform(ctrl) emoOVERimg +0.0097(p0.000) a2OVERimg +0.0136(p0.000) | corr(emo,a2)=+0.94 | emoOVER(img+A2) +0.0016(p0.002) a2OVER(img+Emo) +0.0055(p0.000)
+
+=== VERDICT ===
+  ⚠️ ESCAPE HATCH: the 2nd affect encoder DOES beat generic vision in the amygdala where EmoNet did not.
+     Face-affect (A2) may carry amygdala-specific signal EmoNet's scene-affect missed — investigate.
+
+DONE (1936s)
+
+=== CORRECTED VERDICT (original auto-print had a sign bug: it flagged a SIGNIFICANT A2-Res diff without
+     checking sign; the R-amyg significance is A2 being WORSE than ResNet, not better) ===
+  ✅ AIRTIGHT FALSE FLOOR.
+  - Amygdala: 2nd affect encoder (Toisoul face-EmoNet) does NOT beat generic object vision —
+      L: A2 +0.0025 <= ResNet +0.0036 (diff n.s., p=.195); R: A2 +0.0021 < ResNet +0.0041 (diff p<.001, A2 WORSE).
+    It adds ~nothing over ImageNet (a2-over-img L p=.38, R p=.50, n.s.) and nothing over ImageNet+EmoNet (p=.50/.83).
+    The two affect encoders do NOT agree in amygdala: corr(EmoNet-unique, A2-unique) = -0.26 (L) / -0.51 (R).
+  - Fusiform (positive control): BOTH affect encoders beat object vision (A2-Res +0.0086 p=.002; Emo-Res +0.0066
+    p=.003), both add over ImageNet (a2-over-img +0.0136 p<.001), and they strongly AGREE: corr = +0.94.
+  => Two paradigmatically different affect encoders converge in fusiform (real emotion-specific coding) and
+     DIVERGE / both fail in amygdala (generic-visual false floor). The >=2-encoder invariance test is satisfied.

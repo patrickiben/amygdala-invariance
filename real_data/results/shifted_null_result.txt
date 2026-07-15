@@ -1,0 +1,7 @@
+TEMPORAL-NULL control: misaligned-EmoNet (same stats, broken time) vs aligned | n=20
+  sub- 1 (104s): L real +0.0023 null +0.0006 | R real +0.0027 null +0.0004 | FUS real +0.0080 null +0.0090
+  sub- 2 (210s): L real +0.0023 null +0.0010 | R real +0.0023 null +0.0005 | FUS real +0.0122 null +0.0052
+  sub- 3 (332s): L real +0.0009 null +0.0003 | R real +0.0014 null +0.0005 | FUS real +0.0028 null -0.0013
+  sub- 4 (437s): L real +0.0021 null +0.0007 | R real +0.0015 null +0.0008 | FUS real +0.0094 null +0.0073
+  sub- 5 (524s): L real +0.0013 null +0.0001 | R real +0.0018 null +0.0002 | FUS real +0.0172 null +0.0081
+  sub- 6 (638s): L real +0.0013 null +0.0006 | R real +0.0012 null +0.0006 | FUS real +0.0087 null +0.0074

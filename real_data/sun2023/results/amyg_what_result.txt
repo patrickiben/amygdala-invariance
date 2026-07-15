@@ -1,0 +1,36 @@
+
+=== AMYGDALA (all) (n_units=442) — per-unit tuning (fraction |t|>1.96, signed) ===
+   valence    :  8.4% tuned (binom p=1.8e-03) | mean t +0.08(p0.164) | 51% of tuned are +
+   intensity  :  6.3% tuned (binom p=1.2e-01) | mean t +0.20(p0.000) | 75% of tuned are +
+   choice     :  7.0% tuned (binom p=3.8e-02) | mean t +0.03(p0.584) | 52% of tuned are +
+   RT         :  4.1% tuned (binom p=8.4e-01) | mean t -0.10(p0.028) | 39% of tuned are +
+   confidence :  7.9% tuned (binom p=5.5e-03) | mean t -0.08(p0.082) | 34% of tuned are +
+   correct    :  6.8% tuned (binom p=5.8e-02) | mean t -0.01(p0.890) | 47% of tuned are +
+   CV R^2: stimulus -0.0196 | decision -0.0293 | full -0.0384 | decision-stimulus -0.0097 (t-10.05 p0.000)
+
+=== AMYGDALA — LEFT (n_units=277) — per-unit tuning (fraction |t|>1.96, signed) ===
+   valence    :  6.1% tuned (binom p=2.3e-01) | mean t +0.07(p0.272) | 41% of tuned are +
+   intensity  :  7.9% tuned (binom p=2.3e-02) | mean t +0.16(p0.021) | 77% of tuned are +
+   choice     :  4.3% tuned (binom p=7.3e-01) | mean t -0.02(p0.767) | 42% of tuned are +
+   RT         :  4.3% tuned (binom p=7.3e-01) | mean t -0.14(p0.016) | 42% of tuned are +
+   confidence : 10.5% tuned (binom p=1.6e-04) | mean t -0.11(p0.113) | 31% of tuned are +
+   correct    :  7.9% tuned (binom p=2.3e-02) | mean t +0.05(p0.475) | 55% of tuned are +
+   CV R^2: stimulus -0.0204 | decision -0.0297 | full -0.0399 | decision-stimulus -0.0093 (t-8.16 p0.000)
+
+=== AMYGDALA — RIGHT (n_units=165) — per-unit tuning (fraction |t|>1.96, signed) ===
+   valence    : 12.1% tuned (binom p=2.4e-04) | mean t +0.08(p0.392) | 60% of tuned are +
+   intensity  :  3.6% tuned (binom p=8.4e-01) | mean t +0.26(p0.000) | 67% of tuned are +
+   choice     : 11.5% tuned (binom p=6.5e-04) | mean t +0.10(p0.258) | 58% of tuned are +
+   RT         :  3.6% tuned (binom p=8.4e-01) | mean t -0.04(p0.643) | 33% of tuned are +
+   confidence :  3.6% tuned (binom p=8.4e-01) | mean t -0.04(p0.471) | 50% of tuned are +
+   correct    :  4.8% tuned (binom p=5.9e-01) | mean t -0.10(p0.230) | 25% of tuned are +
+   CV R^2: stimulus -0.0183 | decision -0.0286 | full -0.0358 | decision-stimulus -0.0103 (t-5.94 p0.000)
+
+=== MFC (decision region, validity contrast) (n_units=268) — per-unit tuning (fraction |t|>1.96, signed) ===
+   valence    :  4.1% tuned (binom p=7.9e-01) | mean t +0.12(p0.052) | 73% of tuned are +
+   intensity  :  7.1% tuned (binom p=8.2e-02) | mean t -0.06(p0.363) | 58% of tuned are +
+   choice     :  6.0% tuned (binom p=2.7e-01) | mean t -0.10(p0.123) | 56% of tuned are +
+   RT         : 10.8% tuned (binom p=9.2e-05) | mean t -0.15(p0.042) | 38% of tuned are +
+   confidence :  3.4% tuned (binom p=9.2e-01) | mean t +0.00(p0.978) | 56% of tuned are +
+   correct    :  6.0% tuned (binom p=2.7e-01) | mean t +0.07(p0.265) | 62% of tuned are +
+   CV R^2: stimulus -0.0178 | decision -0.0290 | full -0.0396 | decision-stimulus -0.0111 (t-5.89 p0.000)

@@ -1,0 +1,173 @@
+# ============================================================================
+# FROZEN PRE-REGISTRATION (region-agnostic).  Do not edit after commit.
+# config.py records a SHA-256 of this whole file so any post-hoc edit is detectable.
+# Shared decision/reliability/ceiling/fitting blocks + a per-region `regions:` map.
+# load_prereg(region="amygdala"|"nucleus_accumbens") merges shared + region block.
+# Design source of record:
+#   ../amygdala-rank1_feasibility-and-protocol.md          (amygdala)
+#   ../nucleus-accumbens-gap_feasibility.md                (nucleus accumbens; RED / INAPPLICABLE-likely)
+# ============================================================================
+version: 2
+frozen: true
+seed: 20260705
+
+# --- shared decision rule (a region may override individual keys) -------------
+decision:
+  delta: 0.02                   # min target-UNIQUE (vs low-level) ceiling-normalized R^2 for H1
+  break_case_k: 0.90            # H0-break: adversary lower-CI > k * target central estimate
+  break_case_reference: central
+  recover_fraction: 0.80        # a high-level encoder "recovers" iff its R^2 CI reaches this frac of target central
+  min_recovering_highlevel: 2   # ">=2 different encoders recover the same subregion variance"
+  subregion_majority: 3         # default (amygdala: 3 of 4); NAc overrides to 2 of 2
+  ci_level: 0.95
+
+reliability:
+  tsnr_floor: 30.0
+  ceiling_r2_min: 0.02
+  venous_regression: true
+
+ceiling:
+  method: group_mean_split_half  # no within-subject repeats -> group-mean split-half + Spearman-Brown
+  bootstrap: 200
+
+fitting:
+  lambdas: [1.0, 10.0, 100.0, 1000.0, 10000.0]
+  n_folds: 5
+  bootstrap: 200
+
+# --- regions ------------------------------------------------------------------
+regions:
+
+  amygdala:
+    # AVERSIVE / salience-appraisal pole. Target = emotion-supervised CNN (EmoNet).
+    subregions: [LB, CM, SF, AStr]            # Amunts et al. (2005) cytoarchitectonic subregions
+    target_encoder: emonet
+    lowlevel_encoder: lowlevel
+    highlevel_encoders: [dinov2, clip]        # must recover for an H1 verdict
+    adversary_encoders: [lowlevel, random]    # pre-committed break-case
+    all_encoders: [emonet, dinov2, clip, lowlevel, random]
+    mask:
+      atlas: Amunts2005
+      space: MNI152
+      note: LB/CM/SF/AStr amygdala subnuclei (the atlas Jang & Kragel used)
+    feasibility: AMBER                         # conditional GO, gated on the reliability floor
+
+  nucleus_accumbens:
+    # APPETITIVE / reward-value pole. Target = value/preference-supervised encoder.
+    # FEASIBILITY: RED -- INAPPLICABLE is the modal expected outcome (1.5T/MB4 NAc SNR;
+    # a passive romance film under-samples reward/RPE). See nucleus-accumbens-gap_feasibility.md.
+    subregions: [NAc_L, NAc_R]                 # single structure per hemisphere (core/shell NOT resolvable in vivo)
+    target_encoder: imagereward                # RLHF reward model (Apache-2.0); prompt fixed neutral for passive film
+    lowlevel_encoder: lowlevel
+    highlevel_encoders: [laion_aesthetic, hpsv2]   # independent value/preference encoders that must recover for H1
+    adversary_encoders: [lowlevel, random]     # SAME pre-committed break-case as the amygdala test
+    all_encoders: [imagereward, laion_aesthetic, hpsv2, clip_headoff, dinov2, lowlevel, random]
+    decision_overrides:
+      subregion_majority: 2                    # 2 of 2 hemispheres
+    mask:
+      atlas: CIT168_NAc                        # Pauli, Nili & Tyszka (2018), MNI152 2009c; cross-check Tian2020_VST
+      space: MNI152NLin2009cAsym
+      core_shell: disallowed
+    target_meta:
+      backbone_matched_control: clip_headoff   # LOAD-BEARING: isolates value-supervision from the CLIP backbone
+      note: value is agent/expectation-relative, NOT a static image property -- a stimulus-computable value target is a modeling choice, logged as such
+    feasibility: RED                           # INAPPLICABLE / H0 are the first-class expected outcomes
+
+  orbitofrontal_vmpfc:
+    # VALUE-INTEGRATION / "common currency" / subjective-value pole (the third and HARDEST).
+    # FEASIBILITY: RED. The valuation theory is the MOST mature of the three poles (Bartra 2013;
+    # Levy & Glimcher 2012; Padoa-Schioppa & Assad 2006), BUT subjective value is preference-,
+    # satiety-, and context-relative -- NOT a stimulus property -- so a stimulus-computable value
+    # target is the LEAST defensible here. Orbital susceptibility dropout (1.5T, multiband-4, no
+    # z-shim) + the vmPFC<->default-mode-network NARRATIVE confound during a story film compound
+    # into INAPPLICABLE-or-uninterpretable as the modal outcome. See ofc-vmpfc-gap_feasibility.md.
+    subregions: [OFC_lateral, vmPFC_medial, subcallosal]   # Harvard-Oxford orbital/medial/subcallosal (turnkey)
+    target_encoder: appeal_value               # population-average appeal/preference proxy (ImageReward / LAION-aesthetic)
+                                               # HONEST CAVEAT: population appeal != THIS subject's context-relative value
+    lowlevel_encoder: lowlevel
+    highlevel_encoders: [aesthetic, hpsv2]     # other appeal proxies that must recover for an H1 verdict
+    adversary_encoders: [lowlevel, random]     # SAME pre-committed break-case
+    all_encoders: [appeal_value, aesthetic, hpsv2, clip_headoff, dinov2, lowlevel, random]
+    decision_overrides:
+      subregion_majority: 2                    # 2 of 3
+    mask:
+      atlas: HarvardOxford_orbital             # turnkey; fine-grained alt = HCP-MMP1.0 (Glasser 2016) orbital areas
+      space: MNI152
+      coverage_gate: per_voxel_tSNR            # orbital dropout maps onto the harness reliability gate (tSNR floor)
+    nuisance_required: [dmn_narrative]         # MANDATORY: regress DMN / narrative signal BEFORE the encoder comparison
+    target_meta:
+      backbone_matched_control: clip_headoff
+      note: value is preference/context-relative -> stimulus-computable value is a modeling choice at best; expect INAPPLICABLE-or-confounded
+    feasibility: RED
+    status_default: INAPPLICABLE               # must EARN a score by passing the coverage + reliability gates
+
+  lgn:
+    # POSITIVE CONTROL, not a gap. Lateral geniculate nucleus = first-order visual relay: it
+    # carries the (LGN-filtered) retinal image, so a competent VISUAL encoder MUST predict it and
+    # low-level features suffice. PURPOSE: prove the harness (a) detects strong, encoder-robust
+    # visual prediction and (b) PASSES the reliability gate where signal must exist. If LGN returns
+    # INAPPLICABLE or near-zero R^2, the PIPELINE is broken, not the biology -- which is what makes
+    # every RED elsewhere credible (the null is not just a dead pipeline).
+    #
+    # INVERTED SEMANTICS: for the value poles, H0 / break-case triggering = "encoder artifact".
+    # For this positive control, H0 (low-level dominates) is the EXPECTED, CORRECT outcome for a
+    # low-level relay. The pass-condition is gate-pass + high encoder R^2 (see checks.positive_control_ok),
+    # NOT an H1 verdict.
+    role: positive_control
+    subregions: [LGN_L, LGN_R]                 # Morel / THOMAS thalamic segmentation; classic retinotopic target
+    target_encoder: dinov2                      # a competent visual encoder (essentially any should predict LGN)
+    lowlevel_encoder: lowlevel
+    highlevel_encoders: [clip_headoff, emonet]  # other visual encoders that should ALSO predict (robustness check)
+    adversary_encoders: [lowlevel, random]
+    all_encoders: [dinov2, clip_headoff, emonet, lowlevel, random]
+    decision_overrides:
+      subregion_majority: 2                    # 2 of 2 hemispheres
+    mask:
+      atlas: Morel_LGN                         # or THOMAS thalamic nuclei segmentation
+      space: MNI152
+    positive_control_min_r2: 0.4               # max encoder ceiling-normalized R^2 must exceed this to PASS
+    feasibility: GREEN                          # calibration anchor; expected real-data outcome: gate-pass + high R^2 (low-level-dominated)
+
+  nucleus_accumbens_3t:
+    # AMBER-LIVE variant of nucleus_accumbens: SAME test logic, pointed at a 3T food-valuation
+    # dataset (ds007267) that fixes BOTH 1.5T-film RED causes (3T Prisma -> signal; active per-image
+    # valuation -> reward sampling) AND passes the stimulus-computable-value filter (per-image food
+    # photos + per-trial 1-4 "want to eat" ratings, with the subject's OWN rating as a value anchor).
+    # See nac-3T-dataset-scout.md. NOT GREEN, for three reasons:
+    #   (1) all-food design -> residual VISUAL-CATEGORY confound (no in-scanner neutral baseline); PRIMARY risk.
+    #   (2) MB6 CONFIRMED from the live bold.json acquisition comment ("Unaliased MB6/PE3/LB"): 3T helps
+    #       vs 1.5T, but MB6 is aggressive (between Srirangarajan's MB4-mild and MB8-severe NAc-degradation
+    #       points) -> NAc tSNR gate is a genuine coin-flip -> MANDATORY pre-flight audit; FAIL -> INAPPLICABLE.
+    #   (3) Food-Pics pixels obtained by registration (setup step; join on events.tsv image_id).
+    subregions: [NAc_L, NAc_R]
+    target_encoder: imagereward                # value-supervised head
+    lowlevel_encoder: lowlevel
+    highlevel_encoders: [food_appeal, hpsv2]   # >=2 value heads must recover for an H1 verdict
+    adversary_encoders: [lowlevel, random]     # H0/break-case: value must EXCEED low-level + random
+    all_encoders: [imagereward, food_appeal, hpsv2, imagenet_backbone_matched, dinov2, lowlevel, random]
+    decision_overrides:
+      subregion_majority: 2
+    dataset:
+      id: openneuro/ds007267                   # verified live (S3): N=31, CC0, BIDS 1.8.0; descriptor = bioRxiv preprint (do NOT cite a Nature DOI)
+      acquisition:                             # confirmed first-hand from sub-001 ...task-food_run-01_bold.json
+        field_strength_T: 3
+        tr_s: 0.8
+        te_ms: 34.4
+        multiband: 6                           # from acquisition comment "Unaliased MB6/PE3/LB"
+        derivatives_shipped: false             # raw only -> preprocessing (fMRIPrep) required before the tSNR audit
+      bids_task: food
+      trial_type: valuation                    # model the 4s valuation window
+      value_anchor: rating_value               # per-trial 1-4 within-subject value (mitigates 'population appeal != own value')
+    mask:
+      atlas: CIT168_NAc
+      space: MNI152NLin2009cAsym
+      qc_gate: nac_tsnr_audit                  # HARD pre-flight: NAc tSNR+coverage on >=3 subjects; FAIL -> INAPPLICABLE (not H0)
+    stimuli:
+      source: food_pics                        # NOT shipped; register at food-pics.sbg.ac.at, join on image_id
+    controls_required:
+      - visual_category                        # all-food -> use within-food value gradients + low-level covariate regression
+      - backbone_matched                       # imagenet_backbone_matched: value head must beat same-backbone-no-value-supervision
+    target_meta:
+      backbone_matched_control: imagenet_backbone_matched
+      note: within-subject own ratings are the value anchor; a population-appeal encoder alone is the WRONG construct
+    feasibility: AMBER                          # LIVE test -- H1 / H0 (value ~ food-category/low-level) / INAPPLICABLE (tSNR) all real outcomes

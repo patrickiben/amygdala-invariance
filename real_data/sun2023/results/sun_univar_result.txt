@@ -1,0 +1,37 @@
+  sub1 (36s): L-amyg profile(z)~ faceEmo R2 -5.90 resnet -0.37
+  sub2 (84s): L-amyg profile(z)~ faceEmo R2 -7.22 resnet -0.60
+  sub3 (114s): L-amyg profile(z)~ faceEmo R2 -2.04 resnet -0.03
+  sub4 (152s): L-amyg profile(z)~ faceEmo R2 -38.60 resnet -1.64
+  sub5 (195s): L-amyg profile(z)~ faceEmo R2 -16.05 resnet -1.93
+  sub6 (237s): L-amyg profile(z)~ faceEmo R2 -18.46 resnet -1.74
+  sub7 (278s): L-amyg profile(z)~ faceEmo R2 -17.58 resnet -0.67
+  sub8 (307s): L-amyg profile(z)~ faceEmo R2 -16.37 resnet -0.27
+  sub9 (341s): L-amyg profile(z)~ faceEmo R2 -4.02 resnet -0.91
+  sub10 (384s): L-amyg profile(z)~ faceEmo R2 -11.53 resnet -0.51
+  sub11 (424s): L-amyg profile(z)~ faceEmo R2 -17.13 resnet -0.66
+  sub12 (454s): L-amyg profile(z)~ faceEmo R2 -1.58 resnet +0.43
+  sub13 (491s): L-amyg profile(z)~ faceEmo R2 -12.42 resnet -0.50
+  sub14 (530s): L-amyg profile(z)~ faceEmo R2 -17.88 resnet -2.20
+  sub15 (567s): L-amyg profile(z)~ faceEmo R2 -42.01 resnet -1.49
+  sub16 (601s): L-amyg profile(z)~ faceEmo R2 -19.56 resnet -0.61
+  sub17 (634s): L-amyg profile(z)~ faceEmo R2 -28.70 resnet -2.59
+  sub18 (679s): L-amyg profile(z)~ faceEmo R2 -11.79 resnet -0.38
+  sub19 (718s): L-amyg profile(z)~ faceEmo R2 -4.07 resnet -0.13
+
+=== PARAMETRIC replication (profile ~ fear-linear + ambiguity), group t (n=19) ===
+  L-amyg    fear-linear beta -1.476(t-2.19 p0.042) | ambiguity beta -1.121(t-1.51 p0.149)
+  R-amyg    fear-linear beta -1.531(t-1.87 p0.078) | ambiguity beta -1.670(t-2.39 p0.028)
+  Fusiform  fear-linear beta -0.759(t-1.35 p0.194) | ambiguity beta -1.786(t-1.90 p0.074)
+  V1        fear-linear beta -1.474(t-2.13 p0.047) | ambiguity beta -0.099(t-0.12 p0.909)
+
+=== UNIVARIATE ENCODING: amygdala profile predicted by each encoder (LOO R^2, group) ===
+  [L-amyg] faceEmoNet -15.416(p0.00) | kragelEmoNet -0.595(p0.00) | resnet -0.884(p0.00) | vit -0.839(p0.00) | lowlevel -0.361(p0.00)
+       faceEmo-resnet -14.532(t-5.89 p0.000) | kragel-resnet +0.289(p0.015)
+  [R-amyg] faceEmoNet -18.378(p0.00) | kragelEmoNet -0.754(p0.00) | resnet -0.945(p0.00) | vit -1.082(p0.00) | lowlevel -0.361(p0.00)
+       faceEmo-resnet -17.434(t-4.54 p0.000) | kragel-resnet +0.190(p0.018)
+  [Fusiform] faceEmoNet -18.223(p0.00) | kragelEmoNet -0.939(p0.00) | resnet -1.040(p0.00) | vit -1.512(p0.00) | lowlevel -0.361(p0.00)
+       faceEmo-resnet -17.183(t-5.55 p0.000) | kragel-resnet +0.101(p0.401)
+  [V1] faceEmoNet -15.153(p0.00) | kragelEmoNet -0.766(p0.00) | resnet -0.797(p0.00) | vit -0.980(p0.00) | lowlevel -0.361(p0.00)
+       faceEmo-resnet -14.356(t-3.92 p0.001) | kragel-resnet +0.032(p0.768)
+
+DONE (718s)

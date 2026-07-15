@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the associated manuscript."
+title: "No emotion-specific image-computable code in the human amygdala — analysis code"
+abstract: >-
+  Analysis code and result logs for a representation-invariance ("false-floor") test of the
+  claim that the human amygdala carries an emotion-specific, image-computable code. Emotion-
+  supervised encoders are compared against matched generic object/vision encoders across four
+  modalities (naturalistic movie fMRI, face-morph fMRI, single-neuron firing rates, and audio),
+  each with a sensory-cortex positive control. The repository contains only analysis code, the
+  derived result logs that constitute the evidence, and the publication figures; all input data
+  are third-party and public and are not redistributed here.
+type: software
+authors:
+  - given-names: Patrick
+    family-names: Iben
+    orcid: "https://orcid.org/0009-0005-2443-7973"
+    email: p.iben@saeny.net
+    affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
+version: "1.0.0"
+date-released: "2026-07-14"
+license: MIT
+repository-code: "https://github.com/patrickiben/amygdala-invariance"
+url: "https://doi.org/[DOI-to-be-minted]"
+keywords:
+  - amygdala
+  - emotion
+  - representational invariance
+  - encoding models
+  - representational similarity analysis
+  - equivalence testing
+  - fMRI
+  - single-neuron
+  - naturalistic stimuli
+preferred-citation:
+  type: article
+  title: "No emotion-specific image-computable code in the human amygdala"
+  authors:
+    - given-names: Patrick
+      family-names: Iben
+      orcid: "https://orcid.org/0009-0005-2443-7973"
+      email: p.iben@saeny.net
+      affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
+  year: 2026
+  notes: "Manuscript submitted to eLife (reviewed preprint)."

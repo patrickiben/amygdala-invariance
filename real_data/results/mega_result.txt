@@ -1,0 +1,39 @@
+mega-hardening | face72%=72% richface23% | pixmat (5703, 3072) | MRAND=20 GAP=8 | n=20
+mask voxels (thr50): Le=72 Re=80 Lh=164 Rh=160 FUS=434
+  sub- 1 (284s): Le emoOvit +0.0041 resOvit +0.0036 | real +0.0022 null +0.0007 | Lh emoOvit +0.0026 resOvit +0.0024
+  sub- 2 (579s): Le emoOvit +0.0041 resOvit +0.0022 | real +0.0023 null +0.0010 | Lh emoOvit +0.0029 resOvit +0.0020
+  sub- 3 (903s): Le emoOvit +0.0023 resOvit +0.0030 | real +0.0010 null +0.0004 | Lh emoOvit +0.0023 resOvit +0.0021
+  sub- 4 (1162s): Le emoOvit +0.0040 resOvit +0.0045 | real +0.0016 null +0.0006 | Lh emoOvit +0.0035 resOvit +0.0037
+  sub- 5 (1416s): Le emoOvit +0.0037 resOvit +0.0047 | real +0.0014 null +0.0001 | Lh emoOvit +0.0039 resOvit +0.0034
+  sub- 6 (1719s): Le emoOvit +0.0034 resOvit +0.0044 | real +0.0010 null +0.0006 | Lh emoOvit -0.0004 resOvit +0.0025
+  sub- 7 (1921s): Le emoOvit -0.0136 resOvit -0.0113 | real +0.0008 null +0.0052 | Lh emoOvit -0.0167 resOvit -0.0196
+  sub- 8 (2226s): Le emoOvit +0.0032 resOvit +0.0032 | real +0.0013 null -0.0002 | Lh emoOvit +0.0022 resOvit +0.0022
+  sub- 9 (2477s): Le emoOvit +0.0054 resOvit +0.0058 | real +0.0022 null +0.0008 | Lh emoOvit +0.0034 resOvit +0.0039
+  sub-10 (2793s): Le emoOvit +0.0040 resOvit +0.0033 | real +0.0018 null -0.0001 | Lh emoOvit +0.0027 resOvit +0.0022
+  sub-11 (3034s): Le emoOvit +0.0043 resOvit +0.0039 | real +0.0021 null +0.0010 | Lh emoOvit +0.0045 resOvit +0.0043
+  sub-12 (3238s): Le emoOvit +0.0056 resOvit +0.0075 | real +0.0019 null +0.0009 | Lh emoOvit +0.0052 resOvit +0.0050
+  sub-13 (3501s): Le emoOvit +0.0047 resOvit +0.0039 | real +0.0025 null +0.0006 | Lh emoOvit +0.0035 resOvit +0.0023
+  sub-14 (3806s): Le emoOvit +0.0025 resOvit +0.0025 | real +0.0010 null +0.0004 | Lh emoOvit +0.0019 resOvit +0.0023
+  sub-15 (4025s): Le emoOvit +0.0104 resOvit +0.0101 | real +0.0025 null -0.0014 | Lh emoOvit -0.0043 resOvit -0.0045
+  sub-16 (4307s): Le emoOvit +0.0040 resOvit +0.0045 | real +0.0018 null +0.0010 | Lh emoOvit +0.0001 resOvit +0.0019
+  sub-17 (4497s): Le emoOvit +0.0021 resOvit +0.0022 | real -0.0022 null -0.0048 | Lh emoOvit +0.0031 resOvit +0.0008
+  sub-18 (4699s): Le emoOvit +0.0030 resOvit +0.0031 | real +0.0013 null +0.0010 | Lh emoOvit +0.0027 resOvit +0.0025
+  sub-19 (4869s): Le emoOvit +0.0037 resOvit +0.0040 | real +0.0016 null +0.0006 | Lh emoOvit +0.0029 resOvit +0.0025
+  sub-20 (5022s): Le emoOvit +0.0054 resOvit +0.0061 | real -0.0018 null -0.0050 | Lh emoOvit +0.0033 resOvit +0.0031
+
+=== [H1/H2] PURGED-CV + ERODED(thr50) mask: 2nd-object swap (EmoNet vs ResNet over ViT) ===
+  L-amyg(eroded)       EmoNet-o-ViT +0.0033(p0.003) | ResNet-o-ViT +0.0036(p0.001) | Emo-minus-Res -0.0003 t=-1.26 p=0.223
+  R-amyg(eroded)       EmoNet-o-ViT +0.0043(p0.000) | ResNet-o-ViT +0.0041(p0.000) | Emo-minus-Res +0.0002 t=+0.69 p=0.496
+  L-hipp(bleed-ctrl)   EmoNet-o-ViT +0.0015(p0.180) | ResNet-o-ViT +0.0013(p0.299) | Emo-minus-Res +0.0002 t=+0.80 p=0.434
+  R-hipp(bleed-ctrl)   EmoNet-o-ViT +0.0012(p0.231) | ResNet-o-ViT +0.0008(p0.479) | Emo-minus-Res +0.0004 t=+1.65 p=0.116
+  Fusiform(ref)        EmoNet-o-ViT -0.0037(p0.002) | ResNet-o-ViT -0.0104(p0.001) | Emo-minus-Res +0.0067 t=+3.38 p=0.003
+
+=== [H2] PURGED-CV temporal-null + rich-face (eroded amygdala) ===
+  L-amyg    aligned +0.0013(p0.000) misaligned +0.0002(p0.716) diff p=0.0046 | EmoNet-unique over ViT+ResNet+3xFACE +0.0014(p0.000)
+  R-amyg    aligned +0.0015(p0.000) misaligned -0.0005(p0.401) diff p=0.0000 | EmoNet-unique over ViT+ResNet+3xFACE +0.0015(p0.000)
+
+=== [H3] EMPIRICAL NULL (20 random encoders) + TOST artifact bound (eroded amygdala) ===
+  L-amyg    EmoNet-o-img +0.0013+/-0.0003 | empirical-null(rand) -0.0002 (95%-upper +0.0006) | EmoNet-minus-null +0.0015 t=+2.87 p=0.0098
+  R-amyg    EmoNet-o-img +0.0016+/-0.0003 | empirical-null(rand) -0.0003 (95%-upper -0.0001) | EmoNet-minus-null +0.0019 t=+7.00 p=0.0000
+
+DONE (5022s)

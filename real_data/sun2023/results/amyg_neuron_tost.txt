@@ -1,0 +1,8 @@
+n_units=442  amygdala affect(best)-object(best) = -0.0429
+  bootstrap SE=0.0256 | 90% CI [-0.0831,+0.0013] | 95% CI [-0.0922,+0.0091]
+  boot-p (two-sided vs 0) = 0.111
+  TOST equivalence margin Delta = +0.073 (MFC-sized affect effect)
+  95% upper bound +0.0091  ->  BELOW Delta  =>  amygdala affect-specificity of MFC size is RULED OUT (equivalence established)
+  sensitivity: a true +0.073 effect would be z=2.9 SE from 0 (power ~82% at alpha=.05) -> design COULD detect it
+
+per-session (n=20): affect-object mean -0.0051 (t=-0.45 p=0.660); 95% upper +0.0174

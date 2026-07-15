@@ -1,0 +1,38 @@
+CONTROLS for the +ue_img result | n=20 | regions: amyg L/R + FUS + V1
+  sub- 1 (107s): L emoOimg +0.0023 randOimg +0.0000 | FUS emoOimg +0.0080
+  sub- 2 (213s): L emoOimg +0.0023 randOimg -0.0009 | FUS emoOimg +0.0122
+  sub- 3 (326s): L emoOimg +0.0009 randOimg -0.0003 | FUS emoOimg +0.0028
+  sub- 4 (432s): L emoOimg +0.0021 randOimg -0.0010 | FUS emoOimg +0.0094
+  sub- 5 (546s): L emoOimg +0.0013 randOimg -0.0006 | FUS emoOimg +0.0172
+  sub- 6 (657s): L emoOimg +0.0013 randOimg -0.0000 | FUS emoOimg +0.0087
+  sub- 7 (748s): L emoOimg +0.0012 randOimg +0.0081 | FUS emoOimg +0.0177
+  sub- 8 (873s): L emoOimg +0.0009 randOimg -0.0008 | FUS emoOimg +0.0177
+  sub- 9 (974s): L emoOimg +0.0017 randOimg -0.0008 | FUS emoOimg +0.0087
+  sub-10 (1096s): L emoOimg +0.0016 randOimg -0.0003 | FUS emoOimg +0.0081
+  sub-11 (1203s): L emoOimg +0.0022 randOimg +0.0001 | FUS emoOimg +0.0139
+  sub-12 (1305s): L emoOimg +0.0015 randOimg -0.0001 | FUS emoOimg +0.0016
+  sub-13 (1428s): L emoOimg +0.0024 randOimg -0.0002 | FUS emoOimg +0.0238
+  sub-14 (1537s): L emoOimg +0.0011 randOimg +0.0002 | FUS emoOimg -0.0011
+  sub-15 (1637s): L emoOimg +0.0041 randOimg -0.0028 | FUS emoOimg +0.0203
+  sub-16 (1724s): L emoOimg +0.0016 randOimg -0.0002 | FUS emoOimg -0.0032
+  sub-17 (1792s): L emoOimg -0.0033 randOimg -0.0018 | FUS emoOimg +0.0056
+  sub-18 (1869s): L emoOimg +0.0013 randOimg +0.0007 | FUS emoOimg +0.0043
+  sub-19 (1942s): L emoOimg +0.0016 randOimg -0.0007 | FUS emoOimg +0.0102
+  sub-20 (2020s): L emoOimg -0.0008 randOimg -0.0006 | FUS emoOimg +0.0091
+
+=== GROUP CONTROLS (n=20, one-sample t vs 0) ===
+[region-specificity] EmoNet-unique OVER ImageNet, by region:
+    L-amyg     mean +0.0014 +/- 0.0003  t=+4.29 p=0.0004
+    R-amyg     mean +0.0016 +/- 0.0003  t=+5.51 p=0.0000
+    Fusiform   mean +0.0097 +/- 0.0016  t=+6.11 p=0.0000
+    V1/occ     mean +0.0048 +/- 0.0016  t=+3.01 p=0.0072
+[artifact control] RANDOM-unique OVER ImageNet (should be ~0 if effect is real signal):
+    L-amyg     mean -0.0001 +/- 0.0005  t=-0.21 p=0.8382
+    R-amyg     mean -0.0002 +/- 0.0003  t=-0.61 p=0.5520
+    Fusiform   mean +0.0048 +/- 0.0016  t=+3.05 p=0.0066
+    V1/occ     mean +0.0048 +/- 0.0015  t=+3.11 p=0.0058
+[stricter baseline] EmoNet-unique OVER ImageNet+low-level (amygdala):
+    L-amyg     mean +0.0014 +/- 0.0003  t=+4.23 p=0.0005
+    R-amyg     mean +0.0016 +/- 0.0004  t=+4.39 p=0.0003
+
+DONE (2020s)

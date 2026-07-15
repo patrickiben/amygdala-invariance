@@ -1,0 +1,32 @@
+20-subject PLS (n_comp=10, PCA=300, 5-fold block CV, PAL 1.042); n=20
+  sub- 1 (64s): FUS<-emo -0.0082 | L emo -0.0102 ue_img +0.0023 | R emo -0.0071 ue_img +0.0027
+  sub- 2 (117s): FUS<-emo -0.0078 | L emo -0.0081 ue_img +0.0023 | R emo -0.0069 ue_img +0.0023
+  sub- 3 (177s): FUS<-emo -0.0055 | L emo -0.0056 ue_img +0.0009 | R emo -0.0041 ue_img +0.0014
+  sub- 4 (243s): FUS<-emo -0.0084 | L emo -0.0077 ue_img +0.0021 | R emo -0.0086 ue_img +0.0015
+  sub- 5 (310s): FUS<-emo -0.0064 | L emo -0.0074 ue_img +0.0013 | R emo -0.0059 ue_img +0.0018
+  sub- 6 (372s): FUS<-emo -0.0070 | L emo -0.0081 ue_img +0.0013 | R emo -0.0059 ue_img +0.0012
+  sub- 7 (426s): FUS<-emo -0.0139 | L emo -0.0118 ue_img +0.0012 | R emo -0.0134 ue_img -0.0004
+  sub- 8 (493s): FUS<-emo -0.0080 | L emo -0.0056 ue_img +0.0009 | R emo -0.0046 ue_img +0.0013
+  sub- 9 (548s): FUS<-emo -0.0137 | L emo -0.0101 ue_img +0.0017 | R emo -0.0114 ue_img +0.0035
+  sub-10 (611s): FUS<-emo -0.0061 | L emo -0.0054 ue_img +0.0016 | R emo -0.0048 ue_img +0.0018
+  sub-11 (671s): FUS<-emo -0.0170 | L emo -0.0068 ue_img +0.0022 | R emo -0.0061 ue_img +0.0032
+  sub-12 (730s): FUS<-emo -0.0190 | L emo -0.0163 ue_img +0.0015 | R emo -0.0119 ue_img +0.0021
+  sub-13 (796s): FUS<-emo -0.0068 | L emo -0.0071 ue_img +0.0024 | R emo -0.0056 ue_img +0.0016
+  sub-14 (863s): FUS<-emo -0.0088 | L emo -0.0050 ue_img +0.0011 | R emo -0.0073 ue_img -0.0011
+  sub-15 (918s): FUS<-emo -0.0073 | L emo -0.0141 ue_img +0.0041 | R emo -0.0132 ue_img -0.0011
+  sub-16 (981s): FUS<-emo -0.0123 | L emo -0.0085 ue_img +0.0016 | R emo -0.0072 ue_img +0.0014
+  sub-17 (1036s): FUS<-emo -0.0136 | L emo -0.0140 ue_img -0.0033 | R emo -0.0123 ue_img +0.0038
+  sub-18 (1104s): FUS<-emo -0.0035 | L emo -0.0063 ue_img +0.0013 | R emo -0.0056 ue_img +0.0013
+  sub-19 (1179s): FUS<-emo -0.0066 | L emo -0.0073 ue_img +0.0016 | R emo -0.0052 ue_img +0.0019
+  sub-20 (1237s): FUS<-emo -0.0051 | L emo -0.0099 ue_img -0.0008 | R emo -0.0071 ue_img +0.0022
+
+=== GROUP (n=20, one-sample t vs 0) ===
+  POS-CTRL Fusiform<-EmoNet              mean -0.0092 +/- 0.0009  t=-9.85 p=0.000
+  L-amyg<-EmoNet                         mean -0.0088 +/- 0.0007  t=-12.31 p=0.000
+  R-amyg<-EmoNet                         mean -0.0077 +/- 0.0007  t=-11.41 p=0.000
+  L-amyg EmoNet-unique vs low-level      mean -0.0077 +/- 0.0007  t=-11.45 p=0.000
+  R-amyg EmoNet-unique vs low-level      mean -0.0066 +/- 0.0007  t=-10.15 p=0.000
+  L-amyg EmoNet-unique OVER ImageNet     mean +0.0014 +/- 0.0003  t=+4.29 p=0.000
+  R-amyg EmoNet-unique OVER ImageNet     mean +0.0016 +/- 0.0003  t=+5.51 p=0.000
+
+DONE (1237s)
