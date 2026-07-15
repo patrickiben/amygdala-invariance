@@ -10,7 +10,7 @@ echo "=== PRE-SUBMISSION GATE — amygdala false-floor manuscript ==="
 run "G1 · absolute-path guard"        bash "$V/check_paths.sh" "$RD"
 run "G2 · numbers-gate (numbers->logs)" "$PY" "$V/numbers_gate.py"
 run "G4 · robustness re-derivation"   "$PY" "$V/robustness_gate.py"
-run "G3 · citation-integrity gate"    "$PY" "$V/check_citations.py" "$V/refs.tex" --mailto p.iben@saeny.net
+run "G3 · citation-integrity gate"    "$PY" "$V/check_citations.py" "$V/refs.tex" --mailto patrickiben@gmail.com
 run "G7 · AI-artifact / hidden-text"  "$PY" "$V/scrub_ai_artifacts.py" "$RE/MANUSCRIPT_amygdala-false-floor_v2.md"
 echo; echo "=============================================================================="
 [ $fail -eq 0 ] && echo " RESULT: ALL CLEAR — deterministic pre-submission checks pass" || echo " RESULT: ATTENTION NEEDED — see above"

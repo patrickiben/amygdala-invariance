@@ -328,7 +328,7 @@ def check_entry(key, raw, mailto):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("path")
-    ap.add_argument("--mailto", default="p.iben@saeny.net")
+    ap.add_argument("--mailto", default="patrickiben@gmail.com")
     ap.add_argument("--json", default=None)
     ap.add_argument("--strict", action="store_true", help="also fail on REVIEW items")
     ap.add_argument("--sleep", type=float, default=0.4, help="seconds between requests (politeness)")

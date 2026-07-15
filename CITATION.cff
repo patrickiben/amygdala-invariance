@@ -14,7 +14,7 @@ authors:
   - given-names: Patrick
     family-names: Iben
     orcid: "https://orcid.org/0009-0005-2443-7973"
-    email: p.iben@saeny.net
+    email: patrickiben@gmail.com
     affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
 version: "1.0.0"
 date-released: "2026-07-14"
@@ -46,7 +46,7 @@ preferred-citation:
     - given-names: Patrick
       family-names: Iben
       orcid: "https://orcid.org/0009-0005-2443-7973"
-      email: p.iben@saeny.net
+      email: patrickiben@gmail.com
       affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
   year: 2026
   notes: "Manuscript submitted to eLife (reviewed preprint)."
