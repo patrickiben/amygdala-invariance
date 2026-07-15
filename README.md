@@ -183,7 +183,7 @@ If you use this code, please cite both the manuscript and this archived deposit:
 > Manuscript submitted to eLife (reviewed preprint).
 
 > Iben, P. (2026). *No emotion-specific image-computable code in the human amygdala —
-> analysis code* [Software]. Zenodo. https://doi.org/[DOI-to-be-minted]
+> analysis code* [Software]. Zenodo. https://doi.org/10.5281/zenodo.21367398 (v1.0.0: https://doi.org/10.5281/zenodo.21367399)
 
 See `CITATION.cff` for machine-readable metadata.
 

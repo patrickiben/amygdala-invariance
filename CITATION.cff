@@ -20,7 +20,15 @@ version: "1.0.0"
 date-released: "2026-07-14"
 license: MIT
 repository-code: "https://github.com/patrickiben/amygdala-invariance"
-url: "https://doi.org/[DOI-to-be-minted]"
+url: "https://doi.org/10.5281/zenodo.21367398"
+doi: "10.5281/zenodo.21367398"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21367398"
+    description: "Concept DOI (all versions)"
+  - type: doi
+    value: "10.5281/zenodo.21367399"
+    description: "Version DOI (v1.0.0)"
 keywords:
   - amygdala
   - emotion
