@@ -1,0 +1,4 @@
+BY-FDR (Benjamini-Yekutieli) univariate family: m=2, harmonic c=1.500
+  parametric fear intensity (L)    raw p=0.042  BY q=0.063  does NOT survive (q<.05)
+  ambiguity (R)                    raw p=0.028  BY q=0.063  does NOT survive (q<.05)
+  -> neither exploratory univariate contrast survives dependence-robust BY-FDR (both q approx 0.06)

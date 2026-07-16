@@ -23,7 +23,7 @@ feats["faceEmoNet"]=buf["f"].copy()
 sys.path.insert(0,f"{OLD}/emonet"); from models import EmoNet as KEmoNet
 ke=KEmoNet(); ke.load_state_dict_from_path(f"{OLD}/emonet/emonet_weights.pt"); ke.eval()
 kb={}; ke.conv_6.register_forward_hook(lambda m,i,o: kb.__setitem__("f",o.flatten(1).cpu().numpy()))
-tf227=T.Compose([T.Resize((227,227)),T.ToTensor(),T.Normalize([0.485,0.456,0.406],[0.229,0.224,0.225])])
+tf227=lambda im: torch.from_numpy(np.asarray(im.resize((227,227))).astype(np.float32)).permute(2,0,1)  # correct EmoNet preproc: RGB 0-255, no ImageNet norm
 with torch.no_grad(): ke(torch.stack([tf227(im) for im in imgs]))
 feats["kragelEmoNet"]=kb["f"].copy()
 # ---- ResNet50 + ViT (object) ----

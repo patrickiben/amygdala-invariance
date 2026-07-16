@@ -1,7 +1,7 @@
-# No emotion-specific image-computable code in the human amygdala — analysis code
+# No emotion-specific image-computable code in the human left amygdala — analysis code
 
 This repository is the permanent code deposit for the manuscript **"No emotion-specific
-image-computable code in the human amygdala"** (Patrick Iben, Independent Researcher,
+image-computable code in the human left amygdala"** (Patrick Iben, Independent Researcher,
 Saint Petersburg FL; ORCID [0009-0005-2443-7973](https://orcid.org/0009-0005-2443-7973)).
 It contains the analysis code, the result logs that are the evidence for every headline
 number, and the four publication figures. It does **not** contain any brain data, stimuli,
@@ -179,10 +179,10 @@ of the reference run). Verdicts, not 4th-decimals, are the reproducibility targe
 
 If you use this code, please cite both the manuscript and this archived deposit:
 
-> Iben, P. (2026). *No emotion-specific image-computable code in the human amygdala.*
-> Manuscript submitted to eLife (reviewed preprint).
+> Iben, P. (2026). *No emotion-specific image-computable code in the human left amygdala.*
+> Manuscript in preparation.
 
-> Iben, P. (2026). *No emotion-specific image-computable code in the human amygdala —
+> Iben, P. (2026). *No emotion-specific image-computable code in the human left amygdala —
 > analysis code* [Software]. Zenodo. https://doi.org/10.5281/zenodo.21367398 (v1.0.0: https://doi.org/10.5281/zenodo.21367399)
 
 See `CITATION.cff` for machine-readable metadata.

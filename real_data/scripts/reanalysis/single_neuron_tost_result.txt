@@ -1,0 +1,7 @@
+n_units=442  amygdala affect(best)-object(best) = -0.0831
+  bootstrap SE=0.0391 | 95% CI [-0.1558,-0.0065] | boot-p (two-sided vs 0) = 0.033
+  TOST equivalence margin Delta = +0.100 (re-run MFC-sized affect effect; prior-run benchmark was +0.073)
+  unit-bootstrap 95% upper bound -0.0065  ->  BELOW Delta  =>  MFC-sized affect-specificity RULED OUT
+  per-session 95% upper bound +0.0063  ->  BELOW Delta (primary frame)
+  observed effect is significantly NEGATIVE (boot-p=.033): non-superiority is doubly satisfied
+  descriptive power vs Delta=+0.100: 72%  (vs prior benchmark +0.073: 46%) -- MOOT (effect is significantly negative)

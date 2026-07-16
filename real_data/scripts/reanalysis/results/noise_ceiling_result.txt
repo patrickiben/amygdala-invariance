@@ -1,0 +1,31 @@
+  sub- 1 (68s) done
+  sub- 2 (132s) done
+  sub- 3 (209s) done
+  sub- 4 (278s) done
+  sub- 5 (347s) done
+  sub- 6 (412s) done
+  sub- 7 (471s) done
+  sub- 8 (550s) done
+  sub- 9 (609s) done
+  sub-10 (678s) done
+  sub-11 (740s) done
+  sub-12 (800s) done
+  sub-13 (866s) done
+  sub-14 (936s) done
+  sub-15 (993s) done
+  sub-16 (1058s) done
+  sub-17 (1119s) done
+  sub-18 (1198s) done
+  sub-19 (1266s) done
+  sub-20 (1327s) done
+
+=== RELIABILITY + DISATTENUATED CONVERGENCE (n=20 participants) ===
+  region  rel_emo  rel_a2   obs_conv   disattenuated   boot95%CI(obs)
+  Fusiform +0.228  +0.541   +0.790      +2.249         [+0.394, +0.965]
+  L-amyg   +0.127  +0.580   -0.278      -1.025         [-0.737, +0.100]
+  R-amyg   +0.357  -0.008   -0.003      +nan         [-0.633, +0.590]
+
+READ: high fusiform reliability + r~+0.94 validates the metric. In amygdala, if reliabilities are
+near 0 the negative correlation is a noise artifact (reframe Fig 3); if clearly positive and the CI
+excludes the fusiform value, the encoder divergence is real. Report rel_emo/rel_a2 with Fig 3.
+DONE (1328s)

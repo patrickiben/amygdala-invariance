@@ -1,0 +1,27 @@
+robust banded ridge (closed-form; alphas=[10.0, 1000.0, 100000.0, 10000000.0], inner=2, PCA=300); n=20
+  sub- 1 (24s/subj): L EmoRes -0.0000 R EmoRes -0.0000 FUS EmoRes +0.0001
+  sub- 2 (24s/subj): L EmoRes -0.0000 R EmoRes +0.0000 FUS EmoRes +0.0003
+  sub- 3 (24s/subj): L EmoRes -0.0000 R EmoRes +0.0000 FUS EmoRes -0.0000
+  sub- 4 (24s/subj): L EmoRes +0.0000 R EmoRes +0.0001 FUS EmoRes +0.0001
+  sub- 5 (23s/subj): L EmoRes -0.0000 R EmoRes -0.0000 FUS EmoRes +0.0003
+  sub- 6 (24s/subj): L EmoRes -0.0000 R EmoRes +0.0000 FUS EmoRes +0.0000
+  sub- 7 (24s/subj): L EmoRes +0.0000 R EmoRes -0.0000 FUS EmoRes -0.0001
+  sub- 8 (24s/subj): L EmoRes +0.0001 R EmoRes +0.0000 FUS EmoRes +0.0000
+  sub- 9 (24s/subj): L EmoRes -0.0000 R EmoRes -0.0000 FUS EmoRes +0.0003
+  sub-10 (29s/subj): L EmoRes +0.0001 R EmoRes +0.0000 FUS EmoRes +0.0002
+  sub-11 (24s/subj): L EmoRes +0.0000 R EmoRes -0.0000 FUS EmoRes +0.0002
+  sub-12 (23s/subj): L EmoRes -0.0000 R EmoRes -0.0000 FUS EmoRes +0.0000
+  sub-13 (25s/subj): L EmoRes -0.0000 R EmoRes -0.0000 FUS EmoRes +0.0001
+  sub-14 (25s/subj): L EmoRes -0.0000 R EmoRes +0.0000 FUS EmoRes +0.0000
+  sub-15 (26s/subj): L EmoRes -0.0000 R EmoRes +0.0000 FUS EmoRes +0.0006
+  sub-16 (25s/subj): L EmoRes +0.0000 R EmoRes -0.0000 FUS EmoRes +0.0000
+  sub-17 (23s/subj): L EmoRes -0.0000 R EmoRes -0.0001 FUS EmoRes +0.0001
+  sub-18 (24s/subj): L EmoRes +0.0000 R EmoRes -0.0000 FUS EmoRes +0.0000
+  sub-19 (24s/subj): L EmoRes -0.0000 R EmoRes +0.0000 FUS EmoRes -0.0000
+  sub-20 (24s/subj): L EmoRes -0.0000 R EmoRes +0.0000 FUS EmoRes +0.0002
+
+=== GROUP (robust banded ridge; n=20) ===
+  L-amygdala               EmoNet-minus-ResNet -0.0000 +/- 0.0000  t=-0.86 p=0.401
+  R-amygdala               EmoNet-minus-ResNet -0.0000 +/- 0.0000  t=-0.66 p=0.515
+  Fusiform (pos. control)  EmoNet-minus-ResNet +0.0001 +/- 0.0000  t=+3.33 p=0.003
+DONE (492s)

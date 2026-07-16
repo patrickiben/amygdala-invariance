@@ -1,0 +1,90 @@
+### 2nd-affect swap (decisive verdict + Fig3) 22:26:39
+2nd-affect swap | n=20 | A2 (5703, 256) | E (5703, 4096)
+  idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
+  idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
+  idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+[fetch_atlas_harvard_oxford] Dataset found in /Users/patrickiben/nilearn_data/fsl
+[fetch_atlas_harvard_oxford] Dataset found in /Users/patrickiben/nilearn_data/fsl
+  sub- 1 (174s): L a2Ovit +0.0031 resOvit +0.0054 emoOvit +0.0045
+  sub- 2 (377s): L a2Ovit +0.0022 resOvit +0.0038 emoOvit +0.0045
+  sub- 3 (662s): L a2Ovit +0.0027 resOvit +0.0032 emoOvit +0.0034
+  sub- 4 (842s): L a2Ovit +0.0032 resOvit +0.0036 emoOvit +0.0058
+  sub- 5 (1048s): L a2Ovit +0.0017 resOvit +0.0049 emoOvit +0.0058
+  sub- 6 (1302s): L a2Ovit +0.0030 resOvit +0.0044 emoOvit +0.0046
+  sub- 7 (1482s): L a2Ovit +0.0019 resOvit -0.0163 emoOvit -0.0158
+  sub- 8 (1665s): L a2Ovit +0.0016 resOvit +0.0019 emoOvit +0.0038
+  sub- 9 (1800s): L a2Ovit +0.0017 resOvit +0.0047 emoOvit +0.0059
+  sub-10 (2059s): L a2Ovit +0.0018 resOvit +0.0027 emoOvit +0.0052
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub-11 (2217s): L a2Ovit +0.0018 resOvit +0.0028 emoOvit +0.0044
+  sub-12 (2448s): L a2Ovit +0.0033 resOvit +0.0078 emoOvit +0.0083
+  sub-13 (2602s): L a2Ovit +0.0038 resOvit +0.0045 emoOvit +0.0049
+  sub-14 (2692s): L a2Ovit +0.0016 resOvit +0.0028 emoOvit +0.0031
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub-15 (2762s): L a2Ovit -0.0008 resOvit +0.0081 emoOvit +0.0118
+  sub-16 (2840s): L a2Ovit +0.0021 resOvit +0.0037 emoOvit +0.0047
+  sub-17 (2911s): L a2Ovit +0.0034 resOvit +0.0071 emoOvit +0.0078
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub-18 (3007s): L a2Ovit +0.0020 resOvit +0.0038 emoOvit +0.0040
+  sub-19 (3086s): L a2Ovit +0.0027 resOvit +0.0039 emoOvit +0.0042
+  sub-20 (3161s): L a2Ovit +0.0018 resOvit +0.0061 emoOvit +0.0056
+=== 3-WAY SWAP over ViT (n=20) ===
+  L-amyg         EmoNet +0.0043(p0.001) ResNet +0.0035(p0.006) A2 +0.0022(p0.000) | A2-Res -0.0012(p0.287) Emo-Res +0.0009(p0.002)
+  R-amyg         EmoNet +0.0050(p0.000) ResNet +0.0044(p0.000) A2 +0.0020(p0.000) | A2-Res -0.0024(p0.000) Emo-Res +0.0006(p0.003)
+  Fusiform(ctrl) EmoNet -0.0042(p0.018) ResNet -0.0147(p0.000) A2 -0.0020(p0.000) | A2-Res +0.0128(p0.001) Emo-Res +0.0105(p0.000)
+=== UNIQUE over ImageNet + agreement of the two affect encoders ===
+  L-amyg         emoOVERimg +0.0025(p0.000) a2OVERimg +0.0006(p0.579) | corr(emo,a2)=-0.28 | emoOVER(img+A2) +0.0016(p0.000) a2OVER(img+Emo) -0.0002(p0.824)
+  R-amyg         emoOVERimg +0.0020(p0.000) a2OVERimg -0.0005(p0.022) | corr(emo,a2)=-0.00 | emoOVER(img+A2) +0.0017(p0.000) a2OVER(img+Emo) -0.0007(p0.012)
+  Fusiform(ctrl) emoOVERimg +0.0097(p0.000) a2OVERimg +0.0148(p0.000) | corr(emo,a2)=+0.79 | emoOVER(img+A2) +0.0027(p0.000) a2OVER(img+Emo) +0.0079(p0.000)
+=== VERDICT ===
+  ✅ AIRTIGHT FALSE FLOOR: a 2nd independent affect encoder does NOT beat generic object vision in the
+     amygdala (A2 <= ResNet in both hemispheres), yet retains emotion-specificity in fusiform (A2 > ResNet).
+     Two paradigmatically different affect encoders → generic-visual amygdala signal, not an emotion code.
+DONE (3161s)
+### noise ceiling (Fig3 reliability) 23:19:22
+  m = image.resample_to_img(image.new_img_like(atl["maps"], (np.asarray(atl["maps"].dataobj) == idx).astype("float32")),
+  m = image.resample_to_img(image.new_img_like(atl["maps"], (np.asarray(atl["maps"].dataobj) == idx).astype("float32")),
+  m = image.resample_to_img(image.new_img_like(atl["maps"], (np.asarray(atl["maps"].dataobj) == idx).astype("float32")),
+[fetch_atlas_harvard_oxford] Dataset found in /Users/patrickiben/nilearn_data/fsl
+[fetch_atlas_harvard_oxford] Dataset found in /Users/patrickiben/nilearn_data/fsl
+  sub- 1 (68s) done
+  sub- 2 (132s) done
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub- 3 (209s) done
+  sub- 4 (278s) done
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub- 5 (347s) done
+  sub- 6 (412s) done
+  sub- 7 (471s) done
+  sub- 8 (550s) done
+  sub- 9 (609s) done
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub-10 (678s) done
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub-11 (740s) done
+  sub-12 (800s) done
+  sub-13 (866s) done
+  sub-14 (936s) done
+  sub-15 (993s) done
+  sub-16 (1058s) done
+  sub-17 (1119s) done
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub-18 (1198s) done
+/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
+  sub-19 (1266s) done
+  sub-20 (1327s) done
+=== RELIABILITY + DISATTENUATED CONVERGENCE (n=20 participants) ===
+  region  rel_emo  rel_a2   obs_conv   disattenuated   boot95%CI(obs)
+  Fusiform +0.228  +0.541   +0.790      +2.249         [+0.394, +0.965]
+  L-amyg   +0.127  +0.580   -0.278      -1.025         [-0.737, +0.100]
+  R-amyg   +0.357  -0.008   -0.003      +nan         [-0.633, +0.590]
+READ: high fusiform reliability + r~+0.94 validates the metric. In amygdala, if reliabilities are
+near 0 the negative correlation is a noise artifact (reframe Fig 3); if clearly positive and the CI
+excludes the fusiform value, the encoder divergence is real. Report rel_emo/rel_a2 with Fig 3.
+DONE (1328s)
+### VERDICT_RUNS_DONE 23:41:31

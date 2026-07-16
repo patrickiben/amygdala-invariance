@@ -1,0 +1,38 @@
+audio->amygdala | n=20 | audioAffect (5704, 1024) audioLow (5704, 13)
+ROI voxels: L-amyg=89 R-amyg=107 Heschl(A1-ctrl)=177 STG=705 Fusiform=434 V1=1553
+  sub- 1 (161s): Heschl AA -0.0282 | L-amyg AA -0.0226 AAoverVIS -0.0023
+  sub- 2 (316s): Heschl AA -0.0207 | L-amyg AA -0.0205 AAoverVIS -0.0012
+  sub- 3 (478s): Heschl AA -0.0189 | L-amyg AA -0.0143 AAoverVIS -0.0012
+  sub- 4 (620s): Heschl AA -0.0259 | L-amyg AA -0.0207 AAoverVIS -0.0024
+  sub- 5 (761s): Heschl AA -0.0205 | L-amyg AA -0.0192 AAoverVIS -0.0014
+  sub- 6 (902s): Heschl AA -0.0288 | L-amyg AA -0.0174 AAoverVIS -0.0009
+  sub- 7 (1044s): Heschl AA -0.0821 | L-amyg AA -0.0393 AAoverVIS -0.0065
+  sub- 8 (1239s): Heschl AA -0.0213 | L-amyg AA -0.0171 AAoverVIS -0.0026
+  sub- 9 (1388s): Heschl AA -0.0304 | L-amyg AA -0.0254 AAoverVIS -0.0026
+  sub-10 (1549s): Heschl AA -0.0166 | L-amyg AA -0.0166 AAoverVIS -0.0018
+  sub-11 (1678s): Heschl AA -0.0251 | L-amyg AA -0.0198 AAoverVIS -0.0018
+  sub-12 (1810s): Heschl AA -0.0366 | L-amyg AA -0.0345 AAoverVIS -0.0030
+  sub-13 (1929s): Heschl AA -0.0311 | L-amyg AA -0.0180 AAoverVIS -0.0014
+  sub-14 (2067s): Heschl AA -0.0159 | L-amyg AA -0.0125 AAoverVIS -0.0008
+  sub-15 (2188s): Heschl AA -0.0428 | L-amyg AA -0.0426 AAoverVIS -0.0063
+  sub-16 (2367s): Heschl AA -0.0308 | L-amyg AA -0.0184 AAoverVIS -0.0009
+  sub-17 (2531s): Heschl AA -0.0388 | L-amyg AA -0.0295 AAoverVIS -0.0038
+  sub-18 (2719s): Heschl AA -0.0182 | L-amyg AA -0.0161 AAoverVIS -0.0016
+  sub-19 (2887s): Heschl AA -0.0210 | L-amyg AA -0.0196 AAoverVIS -0.0024
+  sub-20 (3045s): Heschl AA -0.0205 | L-amyg AA -0.0270 AAoverVIS -0.0116
+
+=== AUDIO -> ROIs (n=20) ===
+  L-amyg          audioAffect -0.0226(p0.000) | audioLow -0.0027(p0.000) | vision -0.0088(p0.000)
+      audioAffect-unique/lowAudio -0.0187(p0.000) | audioAffect-unique-OVER-VISION -0.0028(p0.000)
+  R-amyg          audioAffect -0.0201(p0.000) | audioLow -0.0028(p0.000) | vision -0.0068(p0.000)
+      audioAffect-unique/lowAudio -0.0164(p0.000) | audioAffect-unique-OVER-VISION -0.0023(p0.000)
+  Heschl(A1-ctrl) audioAffect -0.0287(p0.000) | audioLow -0.0021(p0.000) | vision -0.0403(p0.000)
+      audioAffect-unique/lowAudio -0.0250(p0.000) | audioAffect-unique-OVER-VISION +0.0040(p0.122)
+  STG             audioAffect -0.0425(p0.000) | audioLow -0.0054(p0.000) | vision -0.0745(p0.000)
+      audioAffect-unique/lowAudio -0.0314(p0.000) | audioAffect-unique-OVER-VISION +0.0189(p0.001)
+  Fusiform        audioAffect -0.0303(p0.000) | audioLow -0.0042(p0.000) | vision -0.0219(p0.000)
+      audioAffect-unique/lowAudio -0.0262(p0.000) | audioAffect-unique-OVER-VISION -0.0042(p0.000)
+  V1              audioAffect -0.0426(p0.000) | audioLow -0.0059(p0.000) | vision -0.0213(p0.000)
+      audioAffect-unique/lowAudio -0.0364(p0.000) | audioAffect-unique-OVER-VISION -0.0063(p0.000)
+
+DONE (3045s)

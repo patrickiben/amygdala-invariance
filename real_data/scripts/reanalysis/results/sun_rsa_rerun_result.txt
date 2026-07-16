@@ -1,0 +1,52 @@
+n_subj=19 | ROIs={'L-amyg': 103, 'R-amyg': 104, 'Fusiform': 431, 'V1': 1600}
+  sub1 (3s): Lamyg faceEmo +0.022 resnet -0.131 | Fus faceEmo +0.436 resnet +0.336
+  sub2 (6s): Lamyg faceEmo +0.113 resnet -0.157 | Fus faceEmo +0.355 resnet +0.255
+  sub3 (9s): Lamyg faceEmo +0.583 resnet +0.579 | Fus faceEmo +0.355 resnet +0.374
+  sub4 (12s): Lamyg faceEmo -0.174 resnet -0.249 | Fus faceEmo +0.532 resnet +0.703
+  sub5 (15s): Lamyg faceEmo +0.139 resnet +0.343 | Fus faceEmo -0.199 resnet -0.047
+  sub6 (17s): Lamyg faceEmo -0.094 resnet -0.126 | Fus faceEmo -0.200 resnet -0.188
+  sub7 (20s): Lamyg faceEmo -0.223 resnet -0.368 | Fus faceEmo +0.262 resnet +0.281
+  sub8 (22s): Lamyg faceEmo +0.422 resnet +0.312 | Fus faceEmo +0.255 resnet +0.145
+  sub9 (25s): Lamyg faceEmo -0.103 resnet -0.314 | Fus faceEmo +0.095 resnet -0.084
+  sub10 (27s): Lamyg faceEmo -0.310 resnet -0.296 | Fus faceEmo +0.744 resnet +0.558
+  sub11 (30s): Lamyg faceEmo +0.205 resnet +0.283 | Fus faceEmo +0.640 resnet +0.657
+  sub12 (32s): Lamyg faceEmo -0.444 resnet -0.501 | Fus faceEmo +0.640 resnet +0.532
+  sub13 (35s): Lamyg faceEmo -0.117 resnet -0.277 | Fus faceEmo +0.047 resnet -0.030
+  sub14 (37s): Lamyg faceEmo +0.353 resnet +0.303 | Fus faceEmo +0.482 resnet +0.397
+  sub15 (40s): Lamyg faceEmo +0.271 resnet +0.344 | Fus faceEmo +0.226 resnet +0.408
+  sub16 (42s): Lamyg faceEmo +0.045 resnet +0.022 | Fus faceEmo +0.436 resnet +0.287
+  sub17 (45s): Lamyg faceEmo +0.165 resnet +0.143 | Fus faceEmo +0.586 resnet +0.370
+  sub18 (48s): Lamyg faceEmo -0.186 resnet -0.174 | Fus faceEmo +0.440 resnet +0.284
+  sub19 (50s): Lamyg faceEmo -0.131 resnet -0.162 | Fus faceEmo +0.221 resnet +0.060
+
+=== GROUP RSA (Spearman neural~encoder RDM, n=19) ===
+  [L-amyg]
+     faceEmoNet     RSA +0.028+/-0.061 (p0.647)
+     kragelEmoNet   RSA -0.013+/-0.054 (p0.813)
+     resnet         RSA -0.022+/-0.070 (p0.752)
+     vit            RSA -0.019+/-0.061 (p0.756)
+     lowlevel       RSA -0.068+/-0.061 (p0.277)
+     -> faceEmoNet - resnet = +0.051 (t=+2.01 p=0.060) | kragelEmoNet - resnet = +0.010 (p0.716)
+  [R-amyg]
+     faceEmoNet     RSA -0.006+/-0.050 (p0.906)
+     kragelEmoNet   RSA +0.002+/-0.063 (p0.971)
+     resnet         RSA -0.023+/-0.057 (p0.696)
+     vit            RSA +0.002+/-0.058 (p0.979)
+     lowlevel       RSA +0.027+/-0.066 (p0.691)
+     -> faceEmoNet - resnet = +0.017 (t=+0.66 p=0.515) | kragelEmoNet - resnet = +0.025 (p0.323)
+  [Fusiform]
+     faceEmoNet     RSA +0.334+/-0.061 (p0.000)
+     kragelEmoNet   RSA +0.372+/-0.062 (p0.000)
+     resnet         RSA +0.279+/-0.058 (p0.000)
+     vit            RSA +0.328+/-0.059 (p0.000)
+     lowlevel       RSA +0.191+/-0.058 (p0.004)
+     -> faceEmoNet - resnet = +0.056 (t=+1.98 p=0.064) | kragelEmoNet - resnet = +0.093 (p0.002)
+  [V1]
+     faceEmoNet     RSA +0.251+/-0.076 (p0.004)
+     kragelEmoNet   RSA +0.259+/-0.074 (p0.003)
+     resnet         RSA +0.224+/-0.075 (p0.008)
+     vit            RSA +0.237+/-0.072 (p0.004)
+     lowlevel       RSA +0.100+/-0.054 (p0.078)
+     -> faceEmoNet - resnet = +0.027 (t=+0.97 p=0.344) | kragelEmoNet - resnet = +0.034 (p0.158)
+
+DONE (50s)

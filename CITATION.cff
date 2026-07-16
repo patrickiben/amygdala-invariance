@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite both the software and the associated manuscript."
-title: "No emotion-specific image-computable code in the human amygdala — analysis code"
+title: "No emotion-specific image-computable code in the human left amygdala — analysis code"
 abstract: >-
   Analysis code and result logs for a representation-invariance ("false-floor") test of the
   claim that the human amygdala carries an emotion-specific, image-computable code. Emotion-
@@ -41,7 +41,7 @@ keywords:
   - naturalistic stimuli
 preferred-citation:
   type: article
-  title: "No emotion-specific image-computable code in the human amygdala"
+  title: "No emotion-specific image-computable code in the human left amygdala"
   authors:
     - given-names: Patrick
       family-names: Iben
@@ -49,4 +49,4 @@ preferred-citation:
       email: patrickiben@gmail.com
       affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
   year: 2026
-  notes: "Manuscript submitted to eLife (reviewed preprint)."
+  notes: "Manuscript in preparation."
