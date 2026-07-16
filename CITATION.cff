@@ -16,8 +16,8 @@ authors:
     orcid: "https://orcid.org/0009-0005-2443-7973"
     email: patrickiben@gmail.com
     affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
-version: "1.0.0"
-date-released: "2026-07-14"
+version: "1.1.0"
+date-released: "2026-07-16"
 license: MIT
 repository-code: "https://github.com/patrickiben/amygdala-invariance"
 url: "https://doi.org/10.5281/zenodo.21367398"
@@ -28,7 +28,7 @@ identifiers:
     description: "Concept DOI (all versions)"
   - type: doi
     value: "10.5281/zenodo.21367399"
-    description: "Version DOI (v1.0.0)"
+    description: "Version DOI (v1.0.0); a new version DOI is minted for v1.1.0 on release."
 keywords:
   - amygdala
   - emotion
