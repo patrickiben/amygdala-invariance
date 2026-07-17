@@ -26,3 +26,15 @@ ViT. Per-encoder match to the 442-unit amygdala geometry: **DINOv2 +0.592** (≈
 negative **holds across all four configurations and strengthens** under stronger generics: original −0.086 (p=.033) →
 +strong-generic −0.088 (p=.014) → +strong-affect −0.084 (p=.039) → +both −0.091 (p=.026). Conclusion: the negative is
 **not** a weak-affect-encoder artifact; it survives the representation-invariance red-team the paper itself prescribes.
+
+**Multiverse (specification-curve).** Across 136 defensible analytic specifications (encoder set × best-of aggregation ×
+RDM metric × normalization) for the pooled and left-amygdala samples, the affect−object contrast was **≤ 0 in 100%**
+(median −0.11; `results/spec_curve_result.txt`, `figures/FigS1_spec_curve.png`). No analytic choice reversed the sign;
+the only large mover was hemisphere (right amygdala null, as reported).
+
+**Movie-arm strong-baseline (nuanced, reported honestly).** The amygdala's small movie EmoNet increment **survives** the
+strongest generic encoder — EmoNet−DINOv2 = +0.0021 L / +0.0015 R (p<.001), *larger* than EmoNet−ResNet — so it is not a
+weak-generic-baseline artifact. This *sharpens* the invariance reading rather than confirming a null: the movie amygdala
+robustly meets criterion (A) but still fails (B) (2nd affect encoder does not reproduce; no convergence), i.e. an
+encoder-specific-not-construct-specific signal, several-fold below the fusiform control (EmoNet−DINOv2 +0.0079).
+`results/movie_strongbaseline_result.txt`.

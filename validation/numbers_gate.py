@@ -49,6 +49,12 @@ REANALYSIS=[
  ("audio re-run: STG audio-over-vision +0.0189 p=.001",["audioAffect-unique-OVER-VISION +0.0189","p0.001"]),
  ("audio re-run: L-amyg audio-over-vision -0.0028 (negative)",["audioAffect-unique-OVER-VISION -0.0028"]),
  ("univariate BY-FDR recompute: both q=0.063 (neither survives)",["BY q=0.063","does NOT survive"]),
+ ("strong-baseline: DINOv2 matches amygdala geometry +0.592",["dinov2","RSA +0.592"]),
+ ("strong-baseline: modern affect encoder matches WORSE +0.140",["ferViT","RSA +0.140"]),
+ ("strong-baseline: negative holds/strengthens, both-strong -0.091 p=.026",["+BOTH STRONG","-0.091","boot-p=0.026"]),
+ ("spec-curve: pooled+left 100% of defensible specs <=0",["ALL POOLED+LEFT","frac<=0 = 100%"]),
+ ("movie strong-baseline: L-amyg EmoNet beats DINOv2 +0.0021 p<.001",["EmoNet-minus-DINOv2 (strong)","+0.0021","p=0.000"]),
+ ("movie strong-baseline: fusiform EmoNet-DINOv2 +0.0079 (control several-fold larger)",["EmoNet-minus-DINOv2 (strong)","+0.0079"]),
 ]
 # ---- Arms NOT re-run this pass (prior committed logs; reported provisional in the manuscript) ----
 CARRIED_OVER=[

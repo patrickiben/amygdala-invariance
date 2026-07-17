@@ -1,0 +1,34 @@
+movie strong-baseline (PLS n_comp=10, PCA=300, PAL 1.042); n=20
+  sub- 1 (47s): L EmoRes -0.0009 EmoDino +0.0013 | FUS EmoRes +0.0042 EmoDino -0.0036
+  sub- 2 (44s): L EmoRes +0.0002 EmoDino +0.0023 | FUS EmoRes +0.0166 EmoDino +0.0083
+  sub- 3 (57s): L EmoRes +0.0004 EmoDino +0.0006 | FUS EmoRes +0.0011 EmoDino +0.0012
+  sub- 4 (43s): L EmoRes +0.0018 EmoDino +0.0008 | FUS EmoRes +0.0030 EmoDino +0.0024
+  sub- 5 (34s): L EmoRes +0.0016 EmoDino +0.0021 | FUS EmoRes +0.0112 EmoDino +0.0103
+  sub- 6 (33s): L EmoRes -0.0005 EmoDino -0.0004 | FUS EmoRes +0.0066 EmoDino -0.0008
+  sub- 7 (26s): L EmoRes -0.0040 EmoDino +0.0014 | FUS EmoRes +0.0064 EmoDino +0.0024
+  sub- 8 (51s): L EmoRes +0.0017 EmoDino +0.0019 | FUS EmoRes +0.0137 EmoDino +0.0110
+  sub- 9 (37s): L EmoRes +0.0013 EmoDino +0.0018 | FUS EmoRes +0.0054 EmoDino +0.0051
+  sub-10 (43s): L EmoRes +0.0018 EmoDino +0.0022 | FUS EmoRes +0.0078 EmoDino +0.0055
+  sub-11 (39s): L EmoRes +0.0016 EmoDino +0.0021 | FUS EmoRes +0.0025 EmoDino +0.0051
+  sub-12 (34s): L EmoRes -0.0000 EmoDino +0.0019 | FUS EmoRes +0.0024 EmoDino +0.0049
+  sub-13 (43s): L EmoRes +0.0005 EmoDino +0.0019 | FUS EmoRes +0.0280 EmoDino +0.0304
+  sub-14 (45s): L EmoRes +0.0003 EmoDino +0.0013 | FUS EmoRes +0.0033 EmoDino +0.0087
+  sub-15 (37s): L EmoRes +0.0023 EmoDino +0.0085 | FUS EmoRes +0.0352 EmoDino +0.0337
+  sub-16 (45s): L EmoRes +0.0004 EmoDino +0.0022 | FUS EmoRes +0.0007 EmoDino -0.0009
+  sub-17 (33s): L EmoRes +0.0010 EmoDino +0.0041 | FUS EmoRes +0.0054 EmoDino +0.0111
+  sub-18 (61s): L EmoRes +0.0000 EmoDino +0.0010 | FUS EmoRes +0.0004 EmoDino +0.0003
+  sub-19 (47s): L EmoRes +0.0001 EmoDino +0.0014 | FUS EmoRes +0.0136 EmoDino +0.0157
+  sub-20 (41s): L EmoRes -0.0004 EmoDino +0.0038 | FUS EmoRes +0.0146 EmoDino +0.0068
+
+=== GROUP (n=20) — does EmoNet beat the STRONGEST generic (DINOv2)? ===
+  L-amygdala           EmoNet-minus-ResNet (paper)      +0.0005 +/- 0.0003  p=0.153
+  L-amygdala           EmoNet-minus-DINOv2 (strong)     +0.0021 +/- 0.0004  p=0.000
+  L-amygdala           DINOv2-unique-over-ViT           +0.0016 +/- 0.0012  p=0.177
+  R-amygdala           EmoNet-minus-ResNet (paper)      +0.0001 +/- 0.0003  p=0.791
+  R-amygdala           EmoNet-minus-DINOv2 (strong)     +0.0015 +/- 0.0003  p=0.000
+  R-amygdala           DINOv2-unique-over-ViT           +0.0027 +/- 0.0003  p=0.000
+  Fusiform (pos.ctrl)  EmoNet-minus-ResNet (paper)      +0.0091 +/- 0.0021  p=0.000
+  Fusiform (pos.ctrl)  EmoNet-minus-DINOv2 (strong)     +0.0079 +/- 0.0021  p=0.002
+  Fusiform (pos.ctrl)  DINOv2-unique-over-ViT           -0.0126 +/- 0.0030  p=0.000
+
+DONE (844s)

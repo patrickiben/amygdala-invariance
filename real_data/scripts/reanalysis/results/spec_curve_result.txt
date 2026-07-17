@@ -1,0 +1,18 @@
+loaded strong encoders from cache
+pseudo-pop sizes: pooled=442 left=277 right=165
+
+=== SPECIFICATION-CURVE (204 defensible specs across E/U choices; N-facet=hemisphere) ===
+  pooled : n=68  median -0.110  range [-0.267,-0.062]  frac<=0: 100%
+  left   : n=68  median -0.125  range [-0.369,-0.039]  frac<=0: 100%
+  right  : n=68  median -0.027  range [-0.144,+0.129]  frac<=0: 65%
+  ALL POOLED+LEFT (the anchored claim): frac<=0 = 100%
+  choice sensitivity (spread of median effect across each axis' levels):
+     affect      spread 0.018  (orig:-0.087, +ferViT:-0.106)
+     object      spread 0.018  (orig:-0.089, +strong:-0.088, +strong+low:-0.106)
+     bestop      spread 0.034  (max:-0.084, mean:-0.118)
+     metric      spread 0.027  (corr:-0.105, spear:-0.077, euclid:-0.089)
+     norm        spread 0.011  (zscore:-0.100, raw:-0.090)
+     hemisphere  spread 0.097  (pooled:-0.110, left:-0.125, right:-0.027)
+
+wrote spec_curve.png
+DONE
