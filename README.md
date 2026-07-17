@@ -159,7 +159,23 @@ guard, numbers-gate, robustness re-derivation, citation resolver, and AI-artifac
 Each headline number in the manuscript maps to a committed result log (the exact console output
 of the reference run). Verdicts, not 4th-decimals, are the reproducibility target.
 
-| Result log | Supports (claim) | Figure |
+> **v1.1.0 correction — read first.** The table immediately below maps the ORIGINAL v1.0.0 run. Under
+> corrected canonical EmoNet preprocessing (v1.1.0) **all four arms were re-run**; the corrected logs
+> live under `real_data/scripts/reanalysis/results/` and **supersede the same-named original logs**
+> (each original now carries a `SUPERSEDED` header). The manuscript reports the **corrected** numbers.
+> See `CHANGELOG.md`. Canonical v1.1.0 headline logs:
+>
+> | Corrected log (`real_data/scripts/reanalysis/results/`) | Headline |
+> |---|---|
+> | `amyg_neuron_rsa_result.txt` | Single-neuron affect−object −0.086 (boot-p=.033); left −0.109 (p=.003); MFC +0.100 |
+> | `single_neuron_tost_result.txt` | Bounded null: margin +0.100, unit-boot 95% upper −0.0065, power ~72% |
+> | `pls20_result.txt` | Movie EmoNet-unique over ImageNet +0.0022/+0.0017 |
+> | `second_affect_swap_result.txt` | Movie EmoNet−ResNet +0.0009/+0.0006; fusiform +0.0105; convergence −0.28/−0.00 (amyg) vs +0.79 (fusiform) |
+> | `sun_rsa_rerun_result.txt` | Face-morph fusiform kragel−ResNet +0.093 (p=.002); amygdala null |
+> | `audio_rerun_result.txt` | Audio STG over-vision +0.0189 (p=.001); amygdala negative |
+> | `banded_robust_result.txt` / `noise_ceiling_result.txt` / `univariate_byfdr_result.txt` | Banded-ridge over-regularization; Fig-3 reliabilities; univariate BY-FDR (both q=.06) |
+
+| Result log (ORIGINAL v1.0.0 run — see correction note above) | Supports (claim) | Figure |
 |---|---|---|
 | `real_data/results/pls20_result.txt` | Amygdala BOLD is EmoNet-predictable, but EmoNet-unique-over-ImageNet is ~0 (+0.0014/+0.0016); fusiform positive control is large | Fig 1 |
 | `real_data/results/pls20_ctrl_result.txt` | Random-encoder null holds in amygdala; region-specificity (artifact appears in V1/fusiform, not amygdala) | Fig 1 |

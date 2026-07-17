@@ -16,8 +16,8 @@ def save(fig,name):
     fig.savefig(f"{FIG}/{name}.pdf",bbox_inches="tight"); plt.close(fig)
 
 # ---- Fig 1: four-arm comparison (affect encoder advantage over object encoder) ----
-# CORRECTED (Mac re-run, canonical 0-255 EmoNet preprocessing). Movie & single-neuron re-run;
-# face-morph & audio NOT re-run this pass (prior neural values, shown provisional/hatched).
+# CORRECTED (Mac re-run, canonical 0-255 EmoNet preprocessing). All four arms re-run under corrected
+# preprocessing (rerun=True for every arm; no arm is provisional/hatched).
 # (title, ctl_label, v_amy, v_ctl, p_amy, p_ctl, rerun)
 arms=[("Movie fMRI\n(encoding, ΔR²)","fusiform", 0.0009, 0.0105, 0.002, 0.0005, True),
       ("Face morphs\n(RSA, Δρ)","fusiform",        0.010, 0.093,  0.72,  0.002,  True),
@@ -43,9 +43,9 @@ for ax,(title,ctl,va,vc,pa,pc,rerun) in zip(axes,arms):
 axes[0].set_ylabel("affect − object encoder")
 fig.suptitle("The affect−object advantage is far larger in sensory cortex than in the amygdala, in every arm",
              fontsize=9.6,y=1.05,fontweight="bold")
-fig.text(0.5,-0.09,"Sensory-cortex control (blue) shows a substantial affect advantage; the amygdala (grey) is at or below zero — "
-         "significantly negative for single neurons and audio, and only a tiny near-floor increment in the movie "
-         "(+0.0009, ~10× below fusiform). All four arms were re-run under corrected preprocessing. Units differ per arm.",
+fig.text(0.5,-0.09,"Sensory-cortex control (blue) shows a substantial affect advantage; the amygdala (grey) is at or near zero — "
+         "significantly negative for single neurons and audio, and only tiny non-significant/near-floor positive increments in the movie "
+         "(+0.0009, ~10× below fusiform) and face-morph (+0.010, n.s.) arms. All four arms were re-run under corrected preprocessing. Units differ per arm.",
          ha="center",fontsize=6.6,color="#555",wrap=True)
 save(fig,"Fig1_four_modality")
 

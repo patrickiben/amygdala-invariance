@@ -1,3 +1,4 @@
+# ===== SUPERSEDED (pre-correction v1.0.0 run). Canonical v1.1.0 corrected values: real_data/scripts/reanalysis/results/amyg_neuron_rsa_result.txt. Retained for provenance only; do not cite. =====
 
 === AMYGDALA (all: LA+RA) (n_units=442) — pseudo-pop RSA (bootstrap 95% CI over units) ===
    faceEmoNet     RSA +0.422 [+0.136,+0.559]

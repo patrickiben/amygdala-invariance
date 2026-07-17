@@ -3,9 +3,6 @@
   idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
   idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
   idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
-[fetch_atlas_harvard_oxford] Dataset found in /Users/patrickiben/nilearn_data/fsl
-[fetch_atlas_harvard_oxford] Dataset found in /Users/patrickiben/nilearn_data/fsl
   sub- 1 (174s): L a2Ovit +0.0031 resOvit +0.0054 emoOvit +0.0045
   sub- 2 (377s): L a2Ovit +0.0022 resOvit +0.0038 emoOvit +0.0045
   sub- 3 (662s): L a2Ovit +0.0027 resOvit +0.0032 emoOvit +0.0034
@@ -16,18 +13,13 @@
   sub- 8 (1665s): L a2Ovit +0.0016 resOvit +0.0019 emoOvit +0.0038
   sub- 9 (1800s): L a2Ovit +0.0017 resOvit +0.0047 emoOvit +0.0059
   sub-10 (2059s): L a2Ovit +0.0018 resOvit +0.0027 emoOvit +0.0052
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub-11 (2217s): L a2Ovit +0.0018 resOvit +0.0028 emoOvit +0.0044
   sub-12 (2448s): L a2Ovit +0.0033 resOvit +0.0078 emoOvit +0.0083
   sub-13 (2602s): L a2Ovit +0.0038 resOvit +0.0045 emoOvit +0.0049
   sub-14 (2692s): L a2Ovit +0.0016 resOvit +0.0028 emoOvit +0.0031
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub-15 (2762s): L a2Ovit -0.0008 resOvit +0.0081 emoOvit +0.0118
   sub-16 (2840s): L a2Ovit +0.0021 resOvit +0.0037 emoOvit +0.0047
   sub-17 (2911s): L a2Ovit +0.0034 resOvit +0.0071 emoOvit +0.0078
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub-18 (3007s): L a2Ovit +0.0020 resOvit +0.0038 emoOvit +0.0040
   sub-19 (3086s): L a2Ovit +0.0027 resOvit +0.0039 emoOvit +0.0042
   sub-20 (3161s): L a2Ovit +0.0018 resOvit +0.0061 emoOvit +0.0056
@@ -48,24 +40,16 @@ DONE (3161s)
   m = image.resample_to_img(image.new_img_like(atl["maps"], (np.asarray(atl["maps"].dataobj) == idx).astype("float32")),
   m = image.resample_to_img(image.new_img_like(atl["maps"], (np.asarray(atl["maps"].dataobj) == idx).astype("float32")),
   m = image.resample_to_img(image.new_img_like(atl["maps"], (np.asarray(atl["maps"].dataobj) == idx).astype("float32")),
-[fetch_atlas_harvard_oxford] Dataset found in /Users/patrickiben/nilearn_data/fsl
-[fetch_atlas_harvard_oxford] Dataset found in /Users/patrickiben/nilearn_data/fsl
   sub- 1 (68s) done
   sub- 2 (132s) done
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub- 3 (209s) done
   sub- 4 (278s) done
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub- 5 (347s) done
   sub- 6 (412s) done
   sub- 7 (471s) done
   sub- 8 (550s) done
   sub- 9 (609s) done
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub-10 (678s) done
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub-11 (740s) done
   sub-12 (800s) done
   sub-13 (866s) done
@@ -73,9 +57,7 @@ DONE (3161s)
   sub-15 (993s) done
   sub-16 (1058s) done
   sub-17 (1119s) done
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub-18 (1198s) done
-/Users/patrickiben/amyg_rerun/venv/lib/python3.12/site-packages/sklearn/cross_decomposition/_pls.py:104: ConvergenceWarning: Maximum number of iterations reached
   sub-19 (1266s) done
   sub-20 (1327s) done
 === RELIABILITY + DISATTENUATED CONVERGENCE (n=20 participants) ===

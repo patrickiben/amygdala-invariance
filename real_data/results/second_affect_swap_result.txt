@@ -1,4 +1,4 @@
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+# ===== SUPERSEDED (pre-correction v1.0.0 run). Canonical v1.1.0 corrected values: real_data/scripts/reanalysis/results/second_affect_swap_result.txt. Retained for provenance only; do not cite. =====
   warnings.warn(
 2nd-affect swap | n=20 | A2 (5703, 256) | E (5703, 4096)
 $HOME/Documents/Research_Explorations/amygdala-invariance/real_data/scripts/second_affect_swap.py:34: FutureWarning: 'force_resample' will be set to 'True' by default in Nilearn 0.13.0.
@@ -10,17 +10,13 @@ Use 'force_resample=True' to suppress this warning.
 $HOME/Documents/Research_Explorations/amygdala-invariance/real_data/scripts/second_affect_swap.py:34: FutureWarning: 'force_resample' will be set to 'True' by default in Nilearn 0.13.0.
 Use 'force_resample=True' to suppress this warning.
   idx=list(atl["labels"]).index(name); m=image.resample_to_img(image.new_img_like(atl["maps"],(np.asarray(atl["maps"].dataobj)==idx).astype("float32")),ref,interpolation="nearest",copy_header=True); return np.asarray(m.dataobj)>0.5
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
 [fetch_atlas_harvard_oxford] Dataset found in $HOME/nilearn_data/fsl
 [fetch_atlas_harvard_oxford] Dataset found in $HOME/nilearn_data/fsl
   sub- 1 (133s): L a2Ovit +0.0034 resOvit +0.0037 emoOvit +0.0040
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
   sub- 2 (249s): L a2Ovit +0.0009 resOvit +0.0022 emoOvit +0.0042
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
   sub- 3 (391s): L a2Ovit +0.0031 resOvit +0.0030 emoOvit +0.0024
   sub- 4 (518s): L a2Ovit +0.0013 resOvit +0.0045 emoOvit +0.0039
@@ -29,29 +25,21 @@ Use 'force_resample=True' to suppress this warning.
   sub- 7 (825s): L a2Ovit +0.0014 resOvit -0.0099 emoOvit -0.0129
   sub- 8 (919s): L a2Ovit +0.0025 resOvit +0.0031 emoOvit +0.0031
   sub- 9 (1003s): L a2Ovit +0.0018 resOvit +0.0058 emoOvit +0.0054
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
   sub-10 (1103s): L a2Ovit +0.0023 resOvit +0.0033 emoOvit +0.0040
   sub-11 (1188s): L a2Ovit +0.0035 resOvit +0.0038 emoOvit +0.0043
   sub-12 (1268s): L a2Ovit +0.0024 resOvit +0.0075 emoOvit +0.0055
   sub-13 (1348s): L a2Ovit +0.0041 resOvit +0.0038 emoOvit +0.0047
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
   sub-14 (1446s): L a2Ovit +0.0027 resOvit +0.0024 emoOvit +0.0024
   sub-15 (1515s): L a2Ovit +0.0005 resOvit +0.0099 emoOvit +0.0105
   sub-16 (1596s): L a2Ovit +0.0018 resOvit +0.0045 emoOvit +0.0038
   sub-17 (1668s): L a2Ovit +0.0028 resOvit +0.0023 emoOvit +0.0017
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
-/private/tmp/claude-501/-Users-patrickiben-Documents/c30f5ed1-6c92-4232-886f-b7fbd771181e/scratchpad/py39/lib/python3.9/site-packages/sklearn/cross_decomposition/_pls.py:113: ConvergenceWarning: Maximum number of iterations reached
   warnings.warn("Maximum number of iterations reached", ConvergenceWarning)
   sub-18 (1767s): L a2Ovit +0.0027 resOvit +0.0032 emoOvit +0.0029
   sub-19 (1861s): L a2Ovit +0.0033 resOvit +0.0039 emoOvit +0.0036

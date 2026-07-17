@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""G2 numbers-gate (amygdala manuscript). Deterministic: asserts every headline number in
-MANUSCRIPT_amygdala-false-floor_v2.md co-occurs in a committed result log. Not an LLM.
-Exit 0 = all numbers trace.
+"""G2 numbers-gate (amygdala manuscript). Deterministic, not an LLM. Exit 0 = all numbers trace.
 
-Updated for the corrected Mac re-run (canonical 0-255 EmoNet preprocessing). Re-run headline
-numbers trace to real_data/scripts/reanalysis/results/*.txt; the two arms NOT re-run this pass
-(face-morph fMRI RSA, audio) trace to their prior committed logs."""
+WHAT THIS CHECKS (and what it does NOT): each entry below is a hand-transcribed headline number
+from the manuscript paired with a substring set; the gate asserts that substring set co-occurs
+within some committed result log under real_data/**. It confirms every headline number is BACKED
+BY committed evidence (the number exists in a log). It does NOT open the manuscript and cannot, on
+its own, confirm the manuscript quotes the number in the right place or describes its estimator /
+CI / sign correctly -- that is a manual/reviewer responsibility. Keep the transcribed entries in
+sync with the manuscript by hand.
+
+All four arms were re-run under corrected preprocessing; re-run headline numbers trace to
+real_data/scripts/reanalysis/results/*.txt (the same-named pre-correction logs elsewhere are
+superseded and carry a SUPERSEDED header)."""
 import os, glob, sys
 HERE=os.path.dirname(os.path.abspath(__file__)); RD=os.path.join(HERE,"..","real_data")
 RE=os.path.abspath(os.path.join(HERE,"..",".."))

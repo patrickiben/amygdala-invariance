@@ -1,3 +1,4 @@
+# ===== SUPERSEDED (pre-correction v1.0.0 run). Canonical v1.1.0 corrected values: real_data/scripts/reanalysis/results/pls20_result.txt. Retained for provenance only; do not cite. =====
 20-subject PLS (n_comp=10, PCA=300, 5-fold block CV, PAL 1.042); n=20
   sub- 1 (64s): FUS<-emo -0.0082 | L emo -0.0102 ue_img +0.0023 | R emo -0.0071 ue_img +0.0027
   sub- 2 (117s): FUS<-emo -0.0078 | L emo -0.0081 ue_img +0.0023 | R emo -0.0069 ue_img +0.0023
