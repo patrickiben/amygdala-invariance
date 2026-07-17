@@ -1,9 +1,9 @@
 {
-  "title": "No emotion-specific image-computable code in the human amygdala — analysis code",
+  "title": "No emotion-specific image-computable code in the human left amygdala — analysis code",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "description": "Analysis code and result logs for a representation-invariance (\"false-floor\") test of the claim that the human amygdala carries an emotion-specific, image-computable code. Emotion-supervised encoders are compared against matched generic object/vision encoders across four modalities (naturalistic movie fMRI, face-morph fMRI, single-neuron firing rates, and audio), each with a sensory-cortex positive control. The repository contains only analysis code, the derived result logs that constitute the evidence, and the publication figures; all input data are third-party and public and are not redistributed here. Accompanies the manuscript of the same title (submitted to eLife).",
+  "description": "Analysis code and result logs for a representation-invariance (\"false-floor\") test of the claim that the human amygdala carries an emotion-specific, image-computable code. Emotion-supervised encoders are compared against matched generic object/vision encoders across four modalities (naturalistic movie fMRI, face-morph fMRI, single-neuron firing rates, and audio), each with a sensory-cortex positive control. The repository contains only analysis code, the derived result logs that constitute the evidence, and the publication figures; all input data are third-party and public and are not redistributed here. Accompanies the manuscript of the same title (in preparation).",
   "creators": [
     {
       "name": "Iben, Patrick",
