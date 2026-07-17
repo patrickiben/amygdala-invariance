@@ -1,0 +1,28 @@
+morph images: 28 | levels(order): [0, 30, 40, 50, 60, 70, 100]
+  DINOv2-base OK (7, 768)
+  CLIP ViT-B/32 OK (7, 512)
+  FER-ViT (affect) OK (7, 768)
+
+amygdala pseudo-pop units: 442
+
+=== amygdala pseudo-pop RSA (point) ===
+   faceEmoNet     RSA +0.422
+   kragelEmoNet   RSA +0.509
+   resnet         RSA +0.571
+   vit            RSA +0.592
+   lowlevel       RSA +0.616
+   dinov2         RSA +0.592
+   clip           RSA +0.374
+   ferViT         RSA +0.140
+
+=== affect(best) - generic(best): does the negative survive STRONGER baselines? ===
+   ORIGINAL   affect{face,kragel} - object{resnet,vit}
+       = -0.086  95%CI[-0.156,-0.009] boot-p=0.033  -> affect still NOT better (negative HOLDS)
+   +STRONG GEN affect{face,kragel} - generic{resnet,vit,dinov2,clip}
+       = -0.088  95%CI[-0.158,-0.014] boot-p=0.014  -> affect still NOT better (negative HOLDS)
+   +STRONG AFF affect{face,kragel,ferViT} - object{resnet,vit}
+       = -0.084  95%CI[-0.153,-0.005] boot-p=0.039  -> affect still NOT better (negative HOLDS)
+   +BOTH STRONG affect{+ferViT} - generic{+dinov2,clip}
+       = -0.091  95%CI[-0.160,-0.012] boot-p=0.026  -> affect still NOT better (negative HOLDS)
+
+DONE
