@@ -16,8 +16,10 @@ low-level encoders, and on most per-session contrasts significantly worse than o
 strongest and most consistent in the left amygdala (face-affect encoder minus object, per-session p<.001); the pooled affect-minus-object composite (−0.086,
 bootstrap-p=.033) is a non-superiority null bounded below the (marginal) affect effect the same instrument detected
 in medial-frontal cortex. In naturalistic movie fMRI the amygdala shows only a tiny EmoNet advantage over a matched
-object encoder (+0.0009; significant but about ten times smaller than in fusiform), which a second affect encoder
-does not reproduce and on which the two affect encoders do not reliably converge. Fusiform (vision) and superior
+object encoder (+0.0009; significant, about ten times smaller than in fusiform, and robust even to the strongest
+generic encoder, DINOv2), but a second affect encoder does not reproduce it and the two affect encoders do not
+converge: it meets the invariance test's first criterion yet fails the second — an encoder-specific, not
+construct-invariant, signal. Fusiform (vision) and superior
 temporal (audio) cortex show genuine modality-specific structure. The amygdala response is better described by a
 modest population bias toward stimulus intensity and salience plus a decision-uncertainty signal. The contribution
 is a reusable invariance test; the negative finding converges with recent work relocating the image-computable
@@ -56,6 +58,18 @@ single neurons with positive controls in two modalities.
 ---
 
 ## 2. Results
+
+**Encoders (cast).** The same networks recur across arms under consistent names; code aliases appear in Methods and the deposit.
+
+| Encoder (code alias) | Type | Objective | Role in the invariance test |
+|---|---|---|---|
+| EmoNet / scene-affect encoder (`kragelEmoNet`) | affect | scene-emotion classification [3] | primary construct encoder |
+| Face-affect encoder (`faceEmoNet`) | affect | face valence/arousal [9] | second construct encoder (criterion B) |
+| ResNet-50, ViT-B/16 | object | ImageNet object recognition | capacity-matched non-construct baseline |
+| DINOv2, CLIP | generic | self-distilled / contrastive vision | strong-baseline non-construct (red-team) |
+| Low-level | low-level | Gabor / luminance / motion | non-construct floor |
+| wav2vec2 (audio) | affect | speech-emotion (audio arm) [13] | construct encoder (audio) |
+
 
 ### 2.1 Naturalistic movie fMRI: a far weaker, encoder-inconsistent amygdala affect signal than in sensory cortex
 On the Naturalistic Neuroimaging Database (ds002837 [8]; 20 participants, 1.5T, TR=1s, *500 Days of Summer*), we
@@ -282,11 +296,21 @@ amygdala geometry better. The image-computable emotion code recovered by deep ne
 cortical regions, consistent with the originating group's own recent report localizing the facial-emotion code to
 cortical face and visual-context regions (Soderberg, Jang & Kragel, 2026 [18]); the present result is convergent
 with that cortical localization, and our contribution is the disciplined test plus multimodal generalization
-rather than a reversal of consensus. We state the scope carefully, and it is why we scope the title
-to the left amygdala: across the fMRI arms the amygdala bilaterally carries no reliable emotion-encoder-specific,
-image-computable code of the kind sensory cortex carries, but the strongest, correction-robust positive evidence
-that generic object and low-level encoders match its single-neuron geometry better than affect encoders is
-left-lateralized (the right amygdala shows no affect-object difference in either direction). This is not a claim
+rather than a reversal of consensus. Soderberg et al. localize the facial-emotion code to cortical face and
+visual-context regions with fMRI; they do not test the amygdala at single-neuron resolution, do not include
+audition, and do not apply a two-encoder capacity-matched invariance criterion, and Jang & Kragel's (2025) amygdala
+positive remains unretracted — so the present single-neuron anchor and the invariance protocol are a distinct,
+non-redundant contribution rather than a restatement of that work. We state the scope carefully, and it is why we scope the title
+to the left amygdala: across the fMRI arms the amygdala bilaterally carries no reliable emotion-construct-invariant
+(cross-encoder-consistent) image-computable code of the kind sensory cortex carries, but the strongest,
+correction-robust positive evidence that generic object and low-level encoders match its single-neuron geometry
+better than affect encoders is left-lateralized (the right amygdala shows no affect-object difference in either
+direction). A note on terms: we use *construct-invariant* for the paper's negative — a code that agrees across
+paradigmatically different emotion encoders (invariance criterion B) — and reserve *encoder-specific* for the
+weaker property that a single emotion encoder captures a signal (criterion A); the title's "emotion-specific"
+denotes the former. This is why the movie left-amygdala EmoNet increment, which meets criterion A (it beats even
+the strongest generic encoder, DINOv2), is nonetheless not an emotion-specific code: it fails criterion B. This is
+not a claim
 that the amygdala is uninvolved in emotion.
 
 The complementary single-neuron characterization gives a coherent positive account: the amygdala carries a
@@ -303,7 +327,7 @@ verdict as PLS but sacrifices the interpretable effect magnitudes that make the 
 dissociation legible. This justifies reporting the fixed low-dimensional PLS budget as primary, while leaving the
 anchoring single-neuron RSA (which does not depend on the encoding estimator) untouched. The components (variance
 partitioning, RSA model comparison, empirical nulls) are standard [16,17]; the contribution is their disciplined
-combination as a false-floor guard applied to a specific affective-coding claim. For affective neuroscience,
+combination as a "false-floor" guard — a construct claim can sit on an apparent floor of signal that any capacity-matched encoder also produces — applied to a specific affective-coding claim. For affective neuroscience,
 programs seeking a mechanistically interpretable image-computable model of amygdala affect should retarget the
 image-computable component to cortical regions and model the amygdala as a salience and uncertainty integrator, a
 computation not captured by any single feedforward sensory encoder, whose remaining candidate substrate
@@ -370,7 +394,7 @@ The ViT, ResNet, and random-AlexNet encoders shared an input transform: frames r
 
 **Per-unit tuning and pseudo-population.** For each unit, the baseline-corrected trial response was x = countAll - countBaseline, restricted to fear-happy trials (trialTypes == 1). A seven-level tuning vector was the NaN-mean of x within each morph level codeL in 1..7; units with any NaN level were dropped, and the tuning shape was z-scored ((vec - mean)/(std + 1e-9)). The pseudo-population was the units-by-seven matrix `tun`; the population RDM was 1 - corrcoef(P.T), i.e. a 7x7 matrix across conditions with units as features. Population RSA was the Spearman correlation of upper triangles against each encoder RDM.
 
-**Bootstrap over units versus per-session group test.** Two inferential frames were computed. The unit bootstrap resampled units with replacement (`RandomState(0)`, B=2000 in the RSA script and B=4000 in the equivalence script), recomputing the pseudo-population RSA to give percentile 95% CIs; the affect-object statistic per bootstrap was ao = max(faceEmoNet, kragelEmoNet) - max(resnet, vit), with a two-sided bootstrap p = 2*min(mean(ao <= 0), mean(ao >= 0)). The per-session group test, which respects the nesting of units within sessions and is the primary inference, computed the pseudo-population RSA within each of the 20 (of 22) sessions that had at least 3 units and applied a one-sample t versus 0 across sessions (`ttest_1samp`, nan_policy='omit'); encoder-contrast pairs tested were faceEmoNet-resnet, kragelEmoNet-resnet, faceEmoNet-vit, and kragelEmoNet-vit. The same procedure was run for all amygdala units, left-only, right-only, and the MFC (ACC+SMA) comparison region.
+**Bootstrap over units versus per-session group test.** Two inferential frames were computed. The unit bootstrap resampled units with replacement (`RandomState(0)`, B=2000 in the RSA script and B=4000 in the equivalence script), recomputing the pseudo-population RSA to give percentile 95% CIs; the affect-object statistic per bootstrap was ao = max(faceEmoNet, kragelEmoNet) - max(resnet, vit), with a two-sided bootstrap p = 2*min(mean(ao <= 0), mean(ao >= 0)). The per-session group test, which respects the nesting of units within sessions and is the primary inference, computed the pseudo-population RSA within each session that had at least 3 units in the region tested and applied a one-sample t versus 0 across sessions (`ttest_1samp`, nan_policy='omit'); encoder-contrast pairs tested were faceEmoNet-resnet, kragelEmoNet-resnet, faceEmoNet-vit, and kragelEmoNet-vit. The same procedure was run for all amygdala units, left-only, right-only, and the MFC (ACC+SMA) comparison region; because the ≥3-units criterion is applied within each hemisphere for the split tests, the effective session counts (and degrees of freedom) are: pooled amygdala 20 of 22 sessions (df=19), left amygdala 14 (df=13), right amygdala 12 (df=11), and MFC 15 (df=14). Thus the correction-robust left-amygdala anchor (faceEmoNet-resnet −0.089, t=−5.04) is a df=13 test.
 
 **One-sided non-superiority (TOST-style) bound.** The equivalence margin was DELTA = 0.100, defined as the affect-specificity the single-neuron instrument itself detected in the MFC comparison region (affect-object +0.100, boot-p=.040). The statistic was the affect-object contrast ao on the pseudo-population (here the encoder set excludes lowlevel). The per-session primary bound was the 95% upper limit mean + 1.96 * std(ddof=1)/sqrt(n) across sessions; the descriptive unit-bootstrap bound was the 97.5th percentile of the bootstrap distribution and its SE the bootstrap standard deviation. Under the corrected features this contrast is significantly negative in the unit-bootstrap frame (point estimate −0.083, bootstrap median −0.086, boot-p=.033; unit-bootstrap SE 0.039, 95% CI [−0.156, −0.0065]; both the point and the bootstrap-median value use affect encoders {faceEmoNet, kragelEmoNet} and object encoders {ResNet, ViT}, differing only by estimator). The one-sided non-superiority claim is then doubly satisfied: the 95% upper bound (−0.0065 in the unit bootstrap, +0.0063 in the primary per-session frame) falls far below DELTA, and the point estimate is on the opposite side of zero from an affect advantage; note the pooled composite is significantly negative only in this descriptive bootstrap frame (its per-session interval crosses zero), so the primary-frame support is the per-session encoder-pair contrasts (Section 2.3). A descriptive sensitivity figure was reported as power = norm.cdf(DELTA/se - 1.96) at alpha=.05 (two-sided 1.96), using the data-derived bootstrap SE; this yields about 72% power to detect the +0.100 margin-sized effect given the corrected bootstrap SE of 0.039, and is labeled a unit-level sensitivity figure rather than a primary inference, both because the unit bootstrap pseudoreplicates across sessions and because the per-session contrasts already detect a reliably negative effect, which makes the power figure moot.
 

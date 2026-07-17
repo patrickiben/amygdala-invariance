@@ -3,6 +3,15 @@
 All notable changes to this analysis-code deposit. Versions correspond to Zenodo releases under
 the concept DOI [10.5281/zenodo.21367398](https://doi.org/10.5281/zenodo.21367398).
 
+## v1.3.1 — 2026-07-17
+
+Pre-submission referee-panel fixes (no change to the results).
+
+- **Terminology:** reserve "encoder-specific" for the single-encoder (criterion A) sense and phrase the negative as "construct-invariant" (criterion B), resolving a self-collision with the title; the abstract now discloses that the movie EmoNet increment survives even DINOv2 (criterion A met) but fails B.
+- **Reporting completeness:** per-session n and degrees of freedom for every anchor test (pooled df=19, left df=13, right df=11, MFC df=14) plus the ≥3-units-per-hemisphere inclusion rule.
+- **Novelty boundary:** pinned Soderberg et al. (2026) scope and noted Jang & Kragel (2025) remains unretracted; added an encoder cast table; defined "false-floor" at use.
+- **Figure 2** redesigned for readability. Deposit hygiene: generalized the CITATION/README version-DOI notes; EVIDENCE_LEDGER G2 count 29 → 35; refreshed the bundled manuscript.
+
 ## v1.3.0 — 2026-07-17
 
 Adds pre-submission validation-harness robustness analyses (house 7-gate harness). **No change to the headline results**; the additions bolster the single-neuron anchor and honestly refine the movie arm.
