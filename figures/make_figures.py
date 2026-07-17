@@ -50,22 +50,34 @@ fig.text(0.5,-0.09,"Sensory-cortex control (blue) shows a substantial affect adv
 save(fig,"Fig1_four_modality")
 
 # ---- Fig 2: bounded null + significant negative (single-neuron TOST) ----
-fig,ax=plt.subplots(figsize=(6.6,2.2))
+fig,ax=plt.subplots(figsize=(7.6,3.3))
 est,lo,hi,margin,hi_ps=-0.083,-0.156,-0.0065,0.100,0.0063   # equivalence-frame point owns the CI; per-session upper +0.0063
-ax.axvspan(0,margin,color="#0072B2",alpha=0.08,zorder=0,label="non-superiority margin (+0.100)")
-ax.axvline(0,color="#bbb",lw=0.8)
-ax.axvline(margin,color=CTL,lw=1.2,ls="--"); ax.text(margin,1.46,"margin = +0.100\n(medial-frontal effect)",color=CTL,fontsize=7.5,ha="center")
-ax.errorbar([est],[1],xerr=[[est-lo],[hi-est]],fmt="o",color=AMY,ms=8,capsize=4,lw=1.6,zorder=3,label="amygdala affect − object (unit boot, n=442)")
-ax.axvline(hi_ps,color=AMY,lw=1.1,ls=":"); ax.text(hi_ps,1.44,"per-session\nupper +0.0063",color=AMY,fontsize=7.0,ha="center")
-ax.plot([margin],[0.55],"D",color=CTL,ms=7,zorder=3); ax.text(margin,0.30,"medial-frontal\neffect +0.100",color=CTL,fontsize=7.3,ha="center")
-ax.annotate("equivalence-frame −0.083 (composite −0.086, boot-p=.033).\n"
-            "Per-session: worse than objects on 3/4 contrasts (left p<.001).\n"
-            "95% upper (unit −0.0065; per-session +0.0063) far below margin.",
-            xy=(est,1),xytext=(-0.150,1.66),fontsize=7.1,color="#333",ha="left",
-            arrowprops=dict(arrowstyle="->",color="#888",lw=0.8))
-ax.set_yticks([]); ax.set_ylim(0,2.15); ax.set_xlim(-0.175,0.135)
+ax.axvspan(0,margin,color="#0072B2",alpha=0.07,zorder=0)                       # non-superiority zone
+ax.axvline(0,color="#bbb",lw=0.8,zorder=1)
+# margin line + label (top, right side)
+ax.axvline(margin,color=CTL,lw=1.4,ls="--",zorder=2)
+ax.text(margin,2.06,"non-superiority margin\n+0.100 (medial-frontal effect)",color=CTL,fontsize=7.8,ha="center",va="top")
+ax.plot([margin],[1.0],"D",color=CTL,ms=8,zorder=3)
+ax.text(margin,0.80,"medial-frontal\nbenchmark",color=CTL,fontsize=7.0,ha="center",va="top")
+# per-session 95% upper bound (dotted, near zero) — labelled up-and-away to avoid the estimate
+ax.axvline(hi_ps,color=AMY,lw=1.0,ls=":",zorder=2)
+ax.annotate("per-session 95% upper\n+0.0063",xy=(hi_ps,1.30),xytext=(0.050,1.78),fontsize=6.9,color=AMY,ha="center",va="center",
+            arrowprops=dict(arrowstyle="->",color=AMY,lw=0.7))
+# amygdala estimate + 95% CI (the main element)
+ax.errorbar([est],[1.0],xerr=[[est-lo],[hi-est]],fmt="o",color=AMY,ms=9,capsize=5,lw=1.9,zorder=4)
+ax.text(est,1.17,"−0.083",color=AMY,fontsize=9,ha="center",fontweight="bold")
+# explanatory box — lower-left, clear of every other element
+ax.text(-0.188,0.40,
+        "Amygdala affect − object, unit bootstrap (n = 442).\n"
+        "Point −0.083 (bootstrap median −0.086, boot-p = .033);\n"
+        "95% CI [−0.156, −0.0065] entirely left of the margin.\n"
+        "Per-session: worse than objects on 3 of 4 encoder\n"
+        "contrasts (left amygdala p < .001).",
+        fontsize=7.0,color="#333",ha="left",va="center",linespacing=1.4,
+        bbox=dict(boxstyle="round,pad=0.45",fc="#fbfbfb",ec="#dddddd",lw=0.7))
+ax.set_yticks([]); ax.set_ylim(0,2.25); ax.set_xlim(-0.195,0.165)
 ax.set_xlabel("affect − object encoder (RSA Δρ)")
-ax.set_title("The single-neuron amygdala affect−object contrast is bounded far below a detectable effect (negative per-session)",fontsize=8.4,pad=8)
+ax.set_title("Single-neuron amygdala affect−object contrast is bounded far below a detectable effect",fontsize=9.6,pad=6)
 save(fig,"Fig2_TOST_bounded_null")
 
 # ---- Fig 3: two-encoder convergence with reliability CIs ----
