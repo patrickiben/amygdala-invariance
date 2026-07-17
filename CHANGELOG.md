@@ -3,6 +3,17 @@
 All notable changes to this analysis-code deposit. Versions correspond to Zenodo releases under
 the concept DOI [10.5281/zenodo.21367398](https://doi.org/10.5281/zenodo.21367398).
 
+## v1.1.1 — 2026-07-17
+
+Deposit-hygiene patch. **No scientific results changed** — post-audit cleanup of the v1.1.0 archive.
+
+- Metadata: `.zenodo.json` / `CITATION.cff` / `README.md` titles scoped to the human *left* amygdala; the stale "submitted to eLife" note removed.
+- `validation/robustness_gate.py` now re-derives the **corrected** single-neuron TOST (margin +0.100, unit-boot 95% upper −0.0065, ~72% power) and the corrected positive-control p-values; it previously certified superseded v1.0.0 statistics and conflicted with `numbers_gate.py`.
+- `validation/numbers_gate.py` docstring corrected to describe what it actually verifies (number-in-log co-occurrence, not manuscript coverage).
+- Three pre-correction result logs sharing filenames with the corrected logs now carry a `SUPERSEDED` header; the README reproducibility table gained a v1.1.0 correction banner and a canonical corrected-log map.
+- Scrubbed incidental machine-path / username lines from two committed logs; softened the Methods path claim to "executable code".
+- Abstract: "significantly worse" scoped to object encoders only (no affect-vs-low-level significance test exists). Figure 1 caption ("at or near zero"; face-morph +0.010 n.s.; error bars labeled p-derived) and a `.11`→`.10` rounding fix.
+
 ## v1.1.0 — 2026-07-16
 
 Corrected re-analysis of the same study; the overarching verdict (no emotion-encoder-specific,
