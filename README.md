@@ -4,8 +4,9 @@ This repository is the permanent code deposit for the manuscript **"No emotion-s
 image-computable code in the human left amygdala"** (Patrick Iben, Independent Researcher,
 Saint Petersburg FL; ORCID [0009-0005-2443-7973](https://orcid.org/0009-0005-2443-7973)).
 It contains the analysis code, the result logs that are the evidence for every headline
-number, and the four publication figures. It does **not** contain any brain data, stimuli,
-or model weights (see **Provenance / Data** below).
+number, the four publication figures, and the accompanying manuscript itself (final DOCX plus
+Markdown source, under [`manuscript/`](manuscript/)). It does **not** contain any brain data,
+stimuli, or model weights (see **Provenance / Data** below).
 
 ## What the code does
 

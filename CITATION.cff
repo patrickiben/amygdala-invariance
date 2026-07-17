@@ -6,9 +6,10 @@ abstract: >-
   claim that the human amygdala carries an emotion-specific, image-computable code. Emotion-
   supervised encoders are compared against matched generic object/vision encoders across four
   modalities (naturalistic movie fMRI, face-morph fMRI, single-neuron firing rates, and audio),
-  each with a sensory-cortex positive control. The repository contains only analysis code, the
-  derived result logs that constitute the evidence, and the publication figures; all input data
-  are third-party and public and are not redistributed here.
+  each with a sensory-cortex positive control. The repository contains the analysis code, the
+  derived result logs that constitute the evidence, the publication figures, and the accompanying
+  manuscript (final DOCX plus Markdown source, under manuscript/); all input data are third-party
+  and public and are not redistributed here.
 type: software
 authors:
   - given-names: Patrick
@@ -16,7 +17,7 @@ authors:
     orcid: "https://orcid.org/0009-0005-2443-7973"
     email: patrickiben@gmail.com
     affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
-version: "1.1.1"
+version: "1.2.0"
 date-released: "2026-07-17"
 license: MIT
 repository-code: "https://github.com/patrickiben/amygdala-invariance"
