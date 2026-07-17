@@ -3,7 +3,7 @@
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Analysis code, result logs, and the accompanying manuscript for a representation-invariance (\"false-floor\") test of the claim that the human amygdala carries an emotion-specific, image-computable code. Emotion-supervised encoders are compared against matched generic object/vision encoders across four modalities (naturalistic movie fMRI, face-morph fMRI, single-neuron firing rates, and audio), each with a sensory-cortex positive control. The repository contains the analysis code, the derived result logs that constitute the evidence, the publication figures, and the accompanying manuscript (final DOCX plus Markdown source, under manuscript/); all input data are third-party and public and are not redistributed here. Manuscript in preparation.",
   "creators": [
     {

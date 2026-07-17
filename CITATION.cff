@@ -17,7 +17,7 @@ authors:
     orcid: "https://orcid.org/0009-0005-2443-7973"
     email: patrickiben@gmail.com
     affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
-version: "1.2.0"
+version: "1.3.0"
 date-released: "2026-07-17"
 license: MIT
 repository-code: "https://github.com/patrickiben/amygdala-invariance"

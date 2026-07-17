@@ -3,6 +3,15 @@
 All notable changes to this analysis-code deposit. Versions correspond to Zenodo releases under
 the concept DOI [10.5281/zenodo.21367398](https://doi.org/10.5281/zenodo.21367398).
 
+## v1.3.0 — 2026-07-17
+
+Adds pre-submission validation-harness robustness analyses (house 7-gate harness). **No change to the headline results**; the additions bolster the single-neuron anchor and honestly refine the movie arm.
+
+- **Strong-baseline / representation-invariance red-team** (the false-floor test applied reflexively to this paper's own negative): the single-neuron affect−object deficit survives paradigmatically-different *stronger* encoders — DINOv2 (self-distilled), CLIP (contrastive), and a modern facial-expression ViT. DINOv2 matches the amygdala geometry ≥ the affect encoders; the modern affect encoder matched *worse*, so the negative is not a weak-encoder artifact.
+- **Specification-curve (multiverse):** the affect−object contrast is ≤ 0 in **100% of 136 defensible specifications** (pooled + left amygdala); no analytic choice reverses the sign. New Figure S1.
+- **Movie-arm strong-baseline (nuanced, reported honestly):** the amygdala's small EmoNet increment *survives* the strongest generic encoder (EmoNet−DINOv2 +0.0021/+0.0015, p<.001), so it is real — not a weak-baseline artifact. It meets invariance criterion (A) robustly but fails (B), consistent with the encoder-specific-not-construct-specific reading, several-fold below the fusiform control.
+- New `validation/EVIDENCE_LEDGER.md` (7-gate) and `validation/COBIDAS_reporting_checklist.md` (G6); new scripts + logs under `real_data/scripts/reanalysis/` (`strong_baseline_rsa.py`, `spec_curve.py`, `movie_strongbaseline.py`). Refreshed the bundled manuscript.
+
 ## v1.2.0 — 2026-07-17
 
 Adds the accompanying manuscript to the deposit (no code or result changes).

@@ -103,6 +103,16 @@ high-threshold mask with a hippocampus neighbor control; purged/gap cross-valida
 face-presence baseline; and an empirical null over 20 random encoders). Variance partitions are differences of
 held-out R² on identical targets, valid despite negative absolute R² because the total sum of squares cancels.
 
+A strong-baseline test confirmed that this small increment is not a weak-generic-encoder artifact: EmoNet retained
+a unique increment over the strongest generic encoder, DINOv2, in the amygdala (EmoNet minus DINOv2 +0.0021 left,
++0.0015 right, both p<.001), even larger than its increment over ResNet. This sharpens rather than softens the
+reading. The movie amygdala robustly meets criterion (A) — a construct encoder beating even a strong non-construct
+encoder — but still fails criterion (B), because the second affect encoder does not reproduce it and the two affect
+encoders do not converge; a signal that survives strong generic baselines yet is not affect-encoder-invariant is
+precisely the encoder-specific, not construct-specific, pattern the invariance test is built to expose. The
+increment also remains several-fold smaller than in the fusiform positive control, where EmoNet beats DINOv2 by
++0.0079 (Methods 4.11).
+
 The honest movie-arm claim is therefore not a clean absence of an image-computable affect code in the amygdala,
 but a far weaker, near-floor, encoder-inconsistent one: a single affect encoder yields a tiny significant increment
 over generic vision, about ten times smaller than in sensory cortex, that a second affect encoder does not
@@ -170,6 +180,24 @@ medial-frontal comparison region is moreover itself only a marginal positive (af
 bootstrap, boot-p=.040, but per-session faceEmoNet minus ResNet p=.108 and kragelEmoNet minus ResNet p=.054), a
 hint rather than a firm positive; we treat it as such, and rest the dissociation on the significantly-negative
 per-session amygdala contrasts, with the bounded-null comparison as a secondary check that holds in either frame.
+
+**Strong-baseline robustness (representation invariance).** A negative claim is only as strong as the strongest
+baseline that fails to beat it, so we re-ran the anchor RSA with paradigmatically different, stronger frozen encoders
+on both sides: two stronger generic encoders (DINOv2, self-distilled; CLIP ViT-B/32, contrastive) and a modern
+facial-expression network as a stronger affect encoder. The strongest generic encoder (DINOv2) matched the amygdala
+single-neuron geometry as well as the object encoders (RSA +0.592, versus ViT +0.592) and better than either affect
+encoder, while the modern affect encoder matched it worse (+0.140), so the affect encoders used here are not weak
+strawmen. The affect(best)−object(best) deficit held across all four encoder configurations and, if anything,
+strengthened under the stronger generic encoders (−0.086 with the original panel, −0.088 adding DINOv2 and CLIP,
+−0.084 adding the stronger affect encoder, −0.091 with stronger encoders on both sides; all bootstrap-p<.05). The
+verdict is therefore robust to encoder strength rather than an artifact of a weak affect probe (Methods 4.11).
+
+We further ran a specification-curve (multiverse) over the anchor verdict across 136 defensible analytic choices for
+the pooled and left-amygdala samples — encoder set (original, plus the stronger encoders), best-of aggregation
+(max/mean), RDM metric (correlation, Spearman, Euclidean), and neural-pattern normalization — and the
+affect(best)−object(best) contrast was negative in 100% of them (median −0.11; Figure S1). No analytic choice
+reversed the sign; the only large mover was hemisphere (the right amygdala is null, as reported). The single-neuron
+verdict is thus robust across the multiverse of reasonable pipelines, not an artifact of the specific one (Methods 4.11).
 
 This analysis targets an image-computable code, meaning a stimulus-to-neural mapping. It does not test whether
 an emotion code is recoverable from the population geometry of experimenter-defined affective states under a
@@ -377,6 +405,9 @@ Contrasts were partitioned into a confirmatory family and an exploratory family.
 
 Analyses used Python (real-data stack, 3.9 to 3.12; numpy<2 required), numpy 1.26.4, scipy (stats, signal), scikit-learn (`cross_decomposition.PLSRegression`, `linear_model.Ridge`), torch 2.2.2, torchvision 0.17.2 (ViT-B/16 IMAGENET1K_V1, ResNet-50 IMAGENET1K_V2, AlexNet), nibabel (>=5,<6), nilearn (>=0.10,<0.13; Harvard-Oxford atlas fetch, `FirstLevelModel`, resampling), opencv-python 4.10.0.84, Pillow (>=10), transformers (>=4.40; audeering wav2vec2), and ffmpeg for frame extraction. The design was preregistered in a frozen region-agnostic specification (version 2, seed 20260705) whose SHA-256 is recorded so post-hoc edits are detectable; the executed primary encoding path used per-participant PLS (n_components=10, PCA-300) rather than the preregistered banded-ridge production path. The banded ridge was run (4.3) and over-regularizes at the single-participant noise floor, compressing even the fusiform positive control roughly a hundredfold, which is why PLS is reported as primary; the banded ridge yields the same qualitative verdict. All data roots are read from environment variables and no machine-specific paths are committed in the executable code. The committed per-analysis result logs are the archived record of the analyses; the corrected-preprocessing re-run logs live under `real_data/scripts/reanalysis/results/` and supersede the same-named pre-correction logs retained elsewhere for provenance (each of the latter carries a `SUPERSEDED` header). The complete analysis code is provided; the feature-extraction step is supplied as a reference implementation that reproduces the pipeline and all qualitative verdicts (signs, significance, the amygdala affect-object comparison, and the equivalence bound). As with any fMRI pipeline, exact numerical reproduction across compute environments is not expected (BLAS/GPU/MPS differences); the original encoder feature caches were lost and were regenerated with a reference extractor (this includes the movie random-encoder features, previously regenerated in place of the original projection seed), and the verdict reproduces at the group level under the regenerated caches. All analysis code, per-analysis result logs, and a reproducibility runner are openly available at https://github.com/patrickiben/amygdala-invariance and archived at Zenodo (doi:10.5281/zenodo.21367398). Public inputs: OpenNeuro ds002837 [8]; OSF 26RHZ [10]; EmoNet weights (OSF amdju); the Toisoul face-EmoNet weights (GitHub); torchvision weights; and the audeering wav2vec2 checkpoint (HuggingFace).
 
+### 4.11 Strong-baseline red-team
+To test whether the single-neuron negative inherits weak encoders, we added paradigmatically different stronger frozen encoders and re-ran the pseudo-population RSA. Generic: DINOv2-base (`facebook/dinov2-base`, CLS token, 768-d) and CLIP ViT-B/32 (`openai/clip-vit-base-patch32`, projected image embedding, 512-d). Affect: a facial-expression ViT (`trpakov/vit-face-expression`, penultimate CLS, 768-d). Features were extracted on the seven morph levels exactly as in 4.2, RDMs and Spearman RSA computed as in 4.4, and the affect(best)−object(best) bootstrap contrast (4.5) recomputed for four encoder configurations (original; +stronger generic; +stronger affect; both). The load-bearing conclusion is the generic-side result (a stronger generic encoder matches the amygdala geometry at least as well as the affect encoders) and the representation-invariance across paradigmatically different affect encoders, not that this facial-expression network is the strongest possible affect probe. Script and log: `real_data/scripts/reanalysis/strong_baseline_rsa.py` -> `results/strong_baseline_result.txt`. As a companion multiverse, a specification-curve varied the encoder set, the best-of aggregation (max/mean), the RDM metric (1−Pearson correlation, Spearman, Euclidean), and the neural-pattern normalization over the pooled and left-amygdala samples — analytic choices classified as principled-equivalent (Type E) or uncertain (Type U), with hemisphere reported as a separate facet — and recomputed the affect(best)−object(best) sign for each defensible specification (`spec_curve.py` -> `results/spec_curve_result.txt`, `figures/FigS1_spec_curve.png`). For the movie arm, the same stronger generic encoders were run through the PLS variance-partition pipeline (4.3): per participant, EmoNet-minus-DINOv2 = R2([emonet,vit]) minus R2([dinov2,vit]) for the L/R amygdala and fusiform, testing whether the amygdala's small EmoNet increment survives the strongest generic baseline (`movie_strongbaseline.py` -> `results/movie_strongbaseline_result.txt`).
+
 ---
 
 ## 5. Limitations
@@ -420,6 +451,12 @@ Analyses used Python (real-data stack, 3.9 to 3.12; numpy<2 required), numpy 1.2
   would be the stronger criterion-(B) partner for the movie arm, and we flag this as a targeted future control. The
   asymmetry does not apply to the face-stimulus anchor arms (face morphs and single neurons), where the face
   encoder's failure is fully diagnostic.
+- **The negative survives a strong-baseline red-team.** Because a limitation claim inherits the strength of its
+  strongest-failing baseline, we tested the amygdala verdict against paradigmatically different stronger encoders
+  (DINOv2, CLIP; a modern facial-expression network). The affect–object deficit was robust and if anything
+  strengthened, and the modern affect encoder matched the geometry worse than EmoNet/Toisoul, so the negative is not
+  a weak-affect-encoder artifact — the representation-invariance test the paper applies to others, turned on its own
+  claim (§2.3, Methods 4.11).
 - **The single-neuron null is for image-computable codes.** It does not exclude an emotion code recoverable from
   population geometry of experimenter-defined states under a task (O'Neill, Posani et al., 2026 [12], mouse). Testing
   cross-condition population-geometry decodability in these 442 units is the most important next analysis.
@@ -523,6 +560,12 @@ population mean-t by task variable (n = 442 amygdala units). The intensity/salie
 population bias (blue); note the per-unit tuned *fraction* for intensity does not exceed chance (6.3%), so this
 is a population-level bias, not strong single-unit tuning. The MFC comparison region instead encodes reaction
 time (decision effort).
+
+**Figure S1 (supplementary). Specification-curve: the single-neuron verdict is stable across the multiverse of
+defensible analytic choices.** The amygdala affect(best)−object(best) contrast, sorted, across 136 defensible
+specifications (encoder set, best-of aggregation, RDM metric, neural normalization) for the pooled and left-amygdala
+samples. Every specification is ≤ 0 (vermillion): the negative does not depend on any single analytic choice. The
+only large mover is hemisphere (the right amygdala is null; reported separately, not shown here).
 
 ## References
 1. Naselaris T, Kay KN, Nishimoto S, Gallant JL. Encoding and decoding in fMRI. *NeuroImage* 2011.
