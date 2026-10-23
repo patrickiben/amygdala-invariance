@@ -22,7 +22,11 @@ def checked_features(values, n_frames: int, dim: int, name: str) -> np.ndarray:
     values = np.asarray(values)
     if values.shape != (n_frames, dim) or not np.isfinite(values).all():
         raise ValueError(f"{name} features must be finite with shape {(n_frames, dim)}; got {values.shape}.")
-    return values.astype(np.float32, copy=False)
+    with np.errstate(over="ignore", invalid="ignore"):
+        converted = values.astype(np.float32, copy=False)
+    if not np.isfinite(converted).all():
+        raise ValueError(f"{name} features must remain finite when stored as float32.")
+    return converted
 
 
 def load_pinned_emonet_class(repo_path):

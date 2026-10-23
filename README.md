@@ -147,7 +147,7 @@ of the reference run). Verdicts, not 4th-decimals, are the reproducibility targe
 If you use this code, please cite both the manuscript and this archived deposit:
 
 > Iben, P. (2026). *No emotion-specific image-computable code in the human left amygdala.*
-> Manuscript in preparation.
+> Preprint. https://doi.org/10.5281/zenodo.21422754.
 
 > Iben, P. (2026). *No emotion-specific image-computable code in the human left amygdala —
 > analysis code* [Software]. Zenodo. https://doi.org/10.5281/zenodo.21367398 (concept DOI — always resolves to the latest version; each release also has its own version DOI on Zenodo).

@@ -66,3 +66,8 @@ def test_pinned_upstream_architecture_on_synthetic_pixels():
         logits = model(torch.from_numpy(contract.emonet_pixels(rgb)))
     assert tuple(logits.shape) == (1, 20)
     assert contract.checked_features(captured["features"], 1, 4096, "conv_6").shape == (1, 4096)
+
+
+def test_storage_conversion_rejects_float32_overflow():
+    with pytest.raises(ValueError, match="float32"):
+        contract.checked_features(np.full((1, 4096), 1e40), 1, 4096, "EmoNet")
