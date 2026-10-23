@@ -36,7 +36,7 @@ Locations reference `MANUSCRIPT_amygdala-false-floor_v2.md`.
 - ✓ Reliability of the key figure disclosed — §2.2 / Fig 3 (raw bootstrap convergence CI; disattenuated estimate withheld as unstable)
 
 ## 6. Data, code, and reproducibility sharing
-- ✓ Code publicly deposited — GitHub `patrickiben/amygdala-invariance`; Zenodo concept DOI 10.5281/zenodo.21367398 (latest v1.2.0 = 21403906, includes the manuscript)
+- ✓ Code publicly deposited — GitHub `patrickiben/amygdala-invariance`; Zenodo concept DOI 10.5281/zenodo.21367398 (archived v1.3.1: [10.5281/zenodo.21420761](https://doi.org/10.5281/zenodo.21420761), includes the manuscript; later GitHub fixes remain Unreleased)
 - ✓ Result logs = the archived evidence — §4.10; `real_data/scripts/reanalysis/results/`
 - ✓ Raw data not redistributed (third-party/public), pointers given — §4.10, Data & Code Availability
 - ✓ Deterministic pre-submission gate — `validation/presubmit.sh`, `EVIDENCE_LEDGER.md`

@@ -30,6 +30,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.21367399"
     description: "Version DOI of the first release (v1.0.0); each subsequent release (v1.1.0 … current) mints its own version DOI under the concept DOI above, which always resolves to the latest."
+  - type: doi
+    value: "10.5281/zenodo.21420761"
+    description: "Version DOI for archived software v1.3.1; the GitHub Unreleased fixes are not a new Zenodo release."
 keywords:
   - amygdala
   - emotion
@@ -50,4 +53,6 @@ preferred-citation:
       email: patrickiben@gmail.com
       affiliation: "Independent Researcher, Saint Petersburg, FL, USA"
   year: 2026
-  notes: "Manuscript in preparation."
+  doi: "10.5281/zenodo.22314186"
+  url: "https://doi.org/10.5281/zenodo.21422754"
+  notes: "Preprint, version 3 (2026-09-05). The URL resolves to the latest manuscript version."
