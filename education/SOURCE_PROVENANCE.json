@@ -1,0 +1,21 @@
+{
+  "repo": "amygdala-invariance",
+  "recordId": 22314186,
+  "doi": "10.5281/zenodo.22314186",
+  "conceptDoi": "10.5281/zenodo.21422754",
+  "version": "3",
+  "title": "No emotion-specific image-computable code in the human left amygdala",
+  "retrievedAt": "2026-10-23T23:12:26.827614+00:00",
+  "latestVerified": true,
+  "files": [
+    {
+      "filename": "MANUSCRIPT_amygdala-false-floor_v2_linenumbered.pdf",
+      "url": "https://zenodo.org/api/records/22314186/files/MANUSCRIPT_amygdala-false-floor_v2_linenumbered.pdf/content",
+      "sha256": "d4ba2bb793b7e2068da17775ac45c3a39a756c90d3421a4c0dc936437f5c4ae2",
+      "md5": "md5:9ca909e3a5bf391f11c9891af09bc8ad",
+      "bytes": 708252
+    }
+  ],
+  "educationalScope": "Source-locked text explanation; no independent empirical replication, full G14 signoff or human learner validation claimed.",
+  "originals": "Original manuscripts, data, figures and license files are not modified or redistributed by this addition."
+}
