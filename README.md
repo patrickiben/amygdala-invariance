@@ -154,6 +154,9 @@ If you use this code, please cite both the manuscript and this archived deposit:
 
 See `CITATION.cff` for machine-readable metadata.
 
+[Manuscript → code → demo map](https://github.com/patrickiben/patrickiben/blob/main/RESEARCH_MAP.md)
+connects this study with its manuscript and the other research projects.
+
 ## License
 
 Code is released under the **MIT License** (see `LICENSE`). The license covers **this
