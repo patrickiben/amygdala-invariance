@@ -11,13 +11,15 @@ import scipy.io as sio
 from scipy import stats
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 S = os.environ.get("SUN2023_DIR", os.path.join(os.environ.get("AMYG_DATA", os.path.expanduser("~/amyg_data")), "sun2023")); DEV="cpu"
-OUT = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "results", "spec_curve_result.txt"), "w")
+OUTPUT_DIR = os.environ.get("AMYG_OUTPUT", S)
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+OUT = open(os.path.join(OUTPUT_DIR, "spec_curve_result.txt"), "w")
 def log(*a): s=" ".join(map(str,a)); print(s,flush=True); OUT.write(s+"\n"); OUT.flush()
 
 # ---- encoders: existing + strong (cache) ----
 mf = np.load(f"{S}/morph_features.npz")
 lvl = {e: mf[f"lvl_{e}"] for e in ["faceEmoNet","kragelEmoNet","resnet","vit","lowlevel"]}
-cache = os.path.join(os.path.dirname(os.path.abspath(__file__)), "morph_strong_cache_LOCAL.npz")
+cache = os.path.join(S, "morph_strong_cache.npz")
 if os.path.exists(cache):
     d=np.load(cache); [lvl.__setitem__(k, d[k]) for k in d.files]; log("loaded strong encoders from cache")
 else:
@@ -97,5 +99,5 @@ fig,ax=plt.subplots(figsize=(7,3.2)); x=np.arange(len(pv))
 ax.axhline(0,color="#bbb",lw=.8); ax.bar(x,pv,width=1.0,color=["#D55E00" if v<=0 else "#0072B2" for v in pv])
 ax.set_xlabel(f"defensible specification (sorted; pooled+left, n={len(pv)})"); ax.set_ylabel("affect(best) − object(best)")
 ax.set_title(f"Specification-curve: single-neuron verdict stable across the multiverse ({np.mean(pv<=0):.0%} ≤ 0)",fontsize=9)
-fig.tight_layout(); fig.savefig(os.path.join(os.path.dirname(os.path.abspath(__file__)), "results", "spec_curve.png"),dpi=200)
+fig.tight_layout(); fig.savefig(os.path.join(OUTPUT_DIR, "spec_curve.png"),dpi=200)
 log("\nwrote spec_curve.png"); log("DONE"); OUT.close()

@@ -3,6 +3,19 @@
 All notable changes to this analysis-code deposit. Versions correspond to Zenodo releases under
 the concept DOI [10.5281/zenodo.21367398](https://doi.org/10.5281/zenodo.21367398).
 
+## Unreleased — repository reproducibility fixes, 2026-10-23
+
+- Correct the reconstructed movie extractor to the pinned upstream Kragel `models.EmoNet`, raw
+  0–255 RGB and 4096-dimensional `conv_6` contract. Check feature shapes and record weight provenance.
+  The face extractor shares the same pinned contract. Synthetic pixel/model fixtures cover these paths.
+- Default the second-affect runner to the archived Toisoul model; keep HSEmotion/CLIP explicit alternatives.
+- Replace superseded README summaries/runbook instructions with corrected archived targets and document
+  reconstruction gaps, including the missing historical movie strong-feature generator.
+- Run synthetic tests, smoke cases and evidence gates in CI; fix the manuscript path in presubmission
+  checks, resolve two DOI-less citation ambiguities and exclude local environments from path scans.
+- Keep regenerated reanalysis outputs in the external data cache. **No archived manuscript, figure or
+  scientific result log changed. A full-data rerun of the reconstructed extractor remains unverified.**
+
 ## v1.3.1 — 2026-07-17
 
 Pre-submission referee-panel fixes (no change to the results).

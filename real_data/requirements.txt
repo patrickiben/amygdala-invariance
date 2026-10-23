@@ -10,4 +10,5 @@ nilearn>=0.10,<0.13
 opencv-python==4.10.0.84
 Pillow>=10
 transformers>=4.40           # audio arm (audeering wav2vec2)
+matplotlib>=3.7,<4          # reanalysis specification curve and publication figures
 # antspyx==0.6.3             # only if re-registering MNI masks from raw (not needed for derivatives)

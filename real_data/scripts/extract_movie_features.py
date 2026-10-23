@@ -10,12 +10,13 @@ extractor real_data/scripts/extract_toisoul.py (identical frame->TR-average
 convention), and (d) amyg_inv/encoders/{emonet,lowlevel,random_cnn}.py, which
 document each encoder's intended real-run form.
 
-It reproduces the PIPELINE and should reproduce the VERDICTS (signs, significance,
-the EmoNet-vs-object null, the TOST bound). It is NOT guaranteed to reproduce the
-committed 4th-decimal values, because the original run's exact EmoNet preprocessing
-and the random-net weights/seed were not preserved. VALIDATE by running this, then
-running pls20.py, and confirming the verdict matches real_data/results/pls20_result.txt.
-Anywhere marked `# CONFIRM:` is a choice a re-runner should check against Methods.
+This reconstruction now implements the v1.1 corrected raw 0-255 RGB / conv_6
+4096-dimensional EmoNet contract against a pinned upstream revision. The original
+extractor and random-net weights/seed were not preserved, so full-data agreement
+has NOT been established. Compare regenerated outputs with the CORRECTED logs in
+real_data/scripts/reanalysis/results/, including the small significant movie
+EmoNet-over-ResNet increment. The single-neuron TOST is a separate arm, not an
+output of this extractor. Do not substitute the superseded v1.0 logs.
 ===============================================================================
 
 Output contract (both caches are TR-averaged, PRE-HRF and PRE-PAL; pls20.prep()
@@ -30,8 +31,13 @@ Each array is [n_TR, dim] where n_TR = n_frames // FPS (FPS frames averaged per 
 Env: SP (cache dir; also where the caches are written), FILM (path to the
 legally-obtained film; never redistributed). Run before any movie-arm script.
 """
-import os, sys, glob, time, subprocess
+import os, sys, glob, time, subprocess, json, hashlib
+from pathlib import Path
 import numpy as np
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from amyg_inv.encoders.emonet_contract import (
+    EMONET_COMMIT, EMONET_DIM, checked_features, emonet_pixels, load_pinned_emonet_class,
+)
 
 SP = os.environ["SP"]
 FILM = os.environ.get("FILM", "")
@@ -69,52 +75,50 @@ def deep_features(frames):
     DEV = "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu")
     log(f"deep encoders on device={DEV}")
 
-    # --- EmoNet (Kragel 2019): clone ecco-laboratory/emonet-pytorch, load OSF `amdju` weights,
-    #     hook the 4096-d fc7-equivalent penultimate (see amyg_inv/encoders/emonet.py). ---
+    # --- Corrected Kragel EmoNet: raw RGB 0-255, 4096-d conv_6 (not classifier logits). ---
     emonet_repo = os.environ.get("EMONET_REPO", f"{SP}/emonet_pytorch")
     emonet_wts = os.environ.get("EMONET_WEIGHTS", f"{SP}/emonet/emonet.pth")
-    sys.path.insert(0, emonet_repo)
-    from emonet_pytorch import EmoNet  # CONFIRM: import path per the ecco-laboratory repo
+    EmoNet = load_pinned_emonet_class(emonet_repo)
     emonet = EmoNet()
-    emonet.load_state_dict(torch.load(emonet_wts, map_location="cpu"), strict=False)
+    emonet.load_state_dict(torch.load(emonet_wts, map_location="cpu", weights_only=True), strict=True)
     emonet.eval().to(DEV)
     ebuf = {}
-    # CONFIRM: fc7 is the penultimate 4096-d linear in the AlexNet-based EmoNet classifier.
-    emonet.classifier[-2].register_forward_hook(
+    emonet.conv_6.register_forward_hook(
         lambda m, i, o: ebuf.__setitem__("f", o.flatten(1).detach().cpu().numpy()))
 
     # --- torchvision object encoders (ImageNet pretrained) + random adversary ---
     vit = models.vit_b_16(weights=models.ViT_B_16_Weights.IMAGENET1K_V1); vit.heads = torch.nn.Identity()
     rn = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V2); rn.fc = torch.nn.Identity()
-    torch.manual_seed(0)  # CONFIRM: fixed seed for the random-weight adversary (random_cnn.py: "prereg seed")
+    torch.manual_seed(0)  # Reconstruction seed; original random-net weights were not preserved.
     rc = models.alexnet(weights=None); rc.classifier = torch.nn.Sequential(*list(rc.classifier.children())[:-1])  # -> 4096-d
     for m in (vit, rn, rc): m.eval().to(DEV)
 
     # EmoNet uses its own preprocessing; the ImageNet nets use the standard transform.
     imagenet = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    def to_batch(paths, size):
+    def read_rgb(paths, size):
         ims = []
         for fp in paths:
             im = cv2.cvtColor(cv2.imread(fp), cv2.COLOR_BGR2RGB)
             if size != FRAME_PX:
                 im = cv2.resize(im, (size, size))
             ims.append(im)
-        return torch.from_numpy(np.stack(ims)).float().permute(0, 3, 1, 2).to(DEV) / 255.0
+        return np.stack(ims)
 
     E, VT, RN, RC = [], [], [], []
     for i in range(0, len(frames), BATCH):
         chunk = frames[i:i + BATCH]
         with torch.no_grad():
-            xin = imagenet(to_batch(chunk, 224))
+            rgb = read_rgb(chunk, 224)
+            xin = imagenet(torch.from_numpy(rgb).float().permute(0, 3, 1, 2).to(DEV) / 255.0)
             VT.append(vit(xin).detach().cpu().numpy())
             RN.append(rn(xin).detach().cpu().numpy())
             RC.append(rc(xin).detach().cpu().numpy())
-            _ = emonet(to_batch(chunk, 227))  # CONFIRM: EmoNet input size/preproc per emonet-pytorch
-            E.append(ebuf["f"].copy())
+            _ = emonet(torch.from_numpy(emonet_pixels(read_rgb(chunk, 227))).to(DEV))
+            E.append(checked_features(ebuf["f"], len(chunk), EMONET_DIM, "EmoNet conv_6").copy())
         if i % (BATCH * 50) == 0:
             log(f"  {i}/{len(frames)} ({time.time()-t0:.0f}s)")
-    return {k: np.vstack(v).astype(np.float32) for k, v in
-            {"E": E, "VT": VT, "RN": RN, "RC": RC}.items()}
+    return {k: checked_features(np.vstack(v), len(frames), dim, k) for k, v, dim in
+            (("E", E, EMONET_DIM), ("VT", VT, 768), ("RN", RN, 2048), ("RC", RC, 4096))}
 
 
 # ------------------------- low-level (no torch) -----------------------------
@@ -151,10 +155,21 @@ def main():
     E, VT, RN, RC = (tr_average(deep[k]) for k in ("E", "VT", "RN", "RC"))
     np.savez(f"{SP}/feat_avg_cache.npz", E=E, VT=VT, RN=RN)
     np.savez(f"{SP}/feat_cache.npz", LL=LL, RC=RC)
+    weights = Path(os.environ.get("EMONET_WEIGHTS", f"{SP}/emonet/emonet.pth"))
+    weights_hash = hashlib.sha256()
+    with weights.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            weights_hash.update(chunk)
+    with open(f"{SP}/feature_extraction_provenance.json", "w") as stream:
+        json.dump({"extractor": "reference-reconstruction", "emonet_commit": EMONET_COMMIT,
+                   "emonet_layer": "conv_6", "emonet_dim": EMONET_DIM,
+                   "emonet_input": "RGB float32 0-255, 227x227",
+                   "emonet_weights_sha256": weights_hash.hexdigest(), "random_cnn_seed": 0,
+                   "fps": FPS, "numpy": np.__version__}, stream, indent=2)
     log(f"DONE feat_avg_cache.npz E{E.shape} VT{VT.shape} RN{RN.shape} | "
         f"feat_cache.npz LL{LL.shape} RC{RC.shape} ({time.time()-t0:.0f}s)")
     log("REMINDER: reference re-implementation -- validate pls20.py output against "
-        "real_data/results/pls20_result.txt (verdict, not 4th-decimals).")
+        "real_data/scripts/reanalysis/results/pls20_result.txt; full-data agreement is unverified.")
 
 
 if __name__ == "__main__":

@@ -27,7 +27,9 @@ DELTA_PRIOR  =  0.073          # prior-run MFC benchmark, for reference
 def power(delta, se):          # descriptive: P(detect a true +delta at alpha=.05 two-sided)
     return float(norm.cdf(delta / se - 1.96))
 
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "single_neuron_tost_result.txt")
+OUTPUT_DIR = os.environ.get("AMYG_OUTPUT", os.environ.get("SP", os.environ.get("AMYG_DATA", os.path.expanduser("~/amyg_data"))))
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+OUT = os.path.join(OUTPUT_DIR, "single_neuron_tost_result.txt")
 lines = [
     "n_units=442  amygdala affect(best)-object(best) = %+.4f" % EFFECT,
     "  bootstrap SE=%.4f | 95%% CI [%+.4f,%+.4f] | boot-p (two-sided vs 0) = 0.033" % (SE, CI95[0], CI95[1]),

@@ -1,4 +1,4 @@
-# Cold-runner CI stub: fails if machine-specific paths reappear or citations break.
+# Cold-runner checks: synthetic behavior, extraction contracts, committed evidence, citations.
 # (Full number-regeneration needs the ~40GB public data + weights; run REPRODUCE.md locally for that.)
 name: validate
 on: [push, pull_request]
@@ -10,6 +10,16 @@ jobs:
       - name: G1 absolute-path guard
         run: bash real_data/validation/check_paths.sh real_data
       - uses: actions/setup-python@v5
-        with: {python-version: '3.11'}
+        with: {python-version: '3.12'}
+      - name: Install lightweight test stack
+        run: python -m pip install -r requirements.txt
+      - name: Synthetic pipeline and corrected extractor contract fixtures
+        run: python -m pytest tests/ -q
+      - name: Region-agnostic synthetic smoke
+        run: python -m amyg_inv.cli smoke
+      - name: Committed evidence and summary robustness gates
+        run: |
+          python validation/numbers_gate.py
+          python validation/robustness_gate.py
       - name: G3 citation resolver
         run: python3 real_data/validation/check_citations.py real_data/validation/refs.tex --mailto ci@example.com

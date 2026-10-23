@@ -24,14 +24,17 @@ live positive control:
 
 | Arm | Data | Method | Amygdala result | Positive control |
 |---|---|---|---|---|
-| Movie fMRI | ds002837, n=20 | per-subject PLS encoding, dR2 | EmoNet-unique-over-ImageNet ~ 0; ResNet matches EmoNet (n.s.) | fusiform: EmoNet > object (sig.) |
+| Movie fMRI | ds002837, n=20 | per-subject PLS encoding, dR2 | Small significant EmoNet−ResNet increment: L +0.0009 (p=.002), R +0.0006 (p=.003); not recovered by a second affect encoder | fusiform: +0.0105 |
 | Face morphs | OSF 26RHZ fMRI | RSA, drho | affect encoders not above ResNet | fusiform / V1: affect encoders above object |
 | Single neurons | OSF 26RHZ firing rates | RSA + **TOST** bounded null | MFC-sized affect-specificity **ruled out** (equivalence) | MFC |
 | Audio | film audio, n=20 | wav2vec2 affect encoding, dR2 over vision | audio-affect not unique in amygdala | STG / Heschl |
 
-Two independent affect encoders (EmoNet scene-affect, Toisoul face-EmoNet) **converge in
-fusiform (r ~ +0.94) but diverge in the amygdala (r ~ -0.3/-0.5)** — the >=2-encoder invariance
-test the false-floor argument requires. A positive account of what the amygdala *does* encode
+Under corrected preprocessing, two independent affect encoders (EmoNet scene-affect, Toisoul
+face-EmoNet) **converge reliably in fusiform (r=+0.79, 95% CI [+0.394,+0.965])**. Amygdala
+agreement is L −0.28 / R −0.00, with CIs including zero. The small movie EmoNet increment also
+survives DINOv2 (+0.0021/+0.0015), so the limitation is **construct invariance across affect
+encoders**, not absence of a single-encoder increment or proof of reliable negative convergence.
+A positive account of what the amygdala *does* encode
 (a population bias toward stimulus intensity/salience, not graded emotion) is included.
 
 ## Provenance / Data — READ THIS
@@ -70,7 +73,7 @@ amyg_inv/                      shared package (banded ridge, variance partition,
 figures/                       Fig1-Fig4 (.png/.pdf) + make_figures.py
 validation/, real_data/validation/  path/citation/number/robustness gate scripts
 preregistration.yaml           frozen region-agnostic decision rule
-requirements.txt               top-level lightweight synthetic/test stack (runs on 3.9-3.14)
+requirements.txt               top-level lightweight synthetic/test stack (tested on Python 3.12)
 README.md, RUNBOOK.md          this file; scaffold/live-test runbook
 ```
 
@@ -81,79 +84,26 @@ excluded from this deposit; the manuscript evidence lives in `real_data/**/resul
 
 ## How to reproduce
 
-All scripts are path-parameterized (no machine-specific paths) and read their data roots from
-environment variables. See `real_data/REPRODUCE.md` for the authoritative, most detailed version.
+Start with the lightweight, data-free checks (Python 3.12 was tested locally):
 
-**1. Environment**
 ```bash
-# torch 2.2.2 supports Python 3.9-3.12 ONLY; do NOT use 3.13/3.14 for the real-data stack.
-python3.9 -m venv .venv && . .venv/bin/activate
-pip install -r real_data/requirements.txt          # numpy stays <2 (mandatory)
-export AMYG_DATA="$HOME/amyg_data"                  # cache root (features, BOLD, weights, logs)
-export SP="$AMYG_DATA"                              # movie-arm scripts read SP
-export SUN2023_DIR="$AMYG_DATA/sun2023"             # Sun 2023 fMRI + single-neuron + stimuli
-export AUDIO_DIR="$AMYG_DATA/audio"                 # extracted film audio + features
-export FILM="/path/to/your/legally-obtained/500DaysOfSummer.mp4"   # copyright-gated, author-supplied
-mkdir -p "$AMYG_DATA" "$SUN2023_DIR" "$AUDIO_DIR"
-```
-(The top-level `requirements.txt` is only the lightweight synthetic/test stack and is the sole
-part that runs on Python 3.13/3.14; the real analysis uses `real_data/requirements.txt`.)
-
-**2. Fetch the public data + weights (once)** — none of this ships with the repo:
-- **ds002837** derivatives, all 20 subjects, from OpenNeuro S3 (task `500daysofsummer`,
-  `*no_blur_no_censor.nii.gz`) -> save each as `$AMYG_DATA/deriv_sub-<k>_bold.nii.gz`
-  (`pls20.py` globs `$SP/deriv_sub-*_bold.nii.gz`).
-- **OSF 26RHZ** (Sun 2023) -> `$SUN2023_DIR`: `01 Stimuli/`, `04 fMRI Data and Code/`,
-  `05 Single-neuron/FiringRate_Amygdala.mat` + `FiringRate_MFC.mat`.
-- **EmoNet** weights (OSF `amdju`) -> `$AMYG_DATA/emonet/`; **Toisoul face-EmoNet** clone
-  (`git clone github.com/face-analysis/emonet`) -> `$AMYG_DATA/toisoul_emonet/`; torchvision
-  ViT-B/16 + ResNet50 and audeering wav2vec2 auto-download on first use.
-
-**Movie feature caches.** Every movie-arm script `np.load()`s two caches: `$SP/feat_avg_cache.npz` (keys `E`=EmoNet fc7 4096-d, `VT`=ViT-B/16 768-d, `RN`=ResNet-50 2048-d, all TR-averaged) and `$SP/feat_cache.npz` (keys `LL`=low-level Gabor/luminance/motion, `RC`=random-weight AlexNet). Build them with `python real_data/scripts/extract_movie_features.py` (reads `FILM`+`SP`; frames the film at 6 fps, runs each encoder, TR-averages, writes both `.npz`). **Note:** this extractor is a *reference re-implementation* -- the original was not preserved, so it reproduces the pipeline and verdicts but not necessarily the committed 4th-decimal values; see the provenance header in that script and validate its `pls20.py` output against `real_data/results/pls20_result.txt`. The sun2023 morph feature cache is built by `extract_morph_features.py`; the audio cache by `extract_audio_features.py`.
-
-**3. Run each arm.** Each script writes its log into the DATA CACHE root it reads
-(`$SP` / `$SUN2023_DIR` / `$AUDIO_DIR`), **not** into the repo's `results/` folders — you copy
-the regenerated logs back and compare (see step 4). Scripts marked `>` only `print()`, so the
-redirection shown is required to capture their log.
-```bash
-# Movie fMRI arm (all read SP, write into $SP)
-python real_data/scripts/extract_movie_features.py   # build feat_avg_cache.npz + feat_cache.npz (reference re-impl; validate vs committed log)
-python real_data/scripts/pls20.py               # -> $SP/pls20_result.txt   (headline EmoNet-unique effect)
-python real_data/scripts/pls20_ctrl.py          # -> $SP/pls20_ctrl_result.txt
-python real_data/scripts/shifted_null.py        # -> $SP/shifted_null_result.txt
-python real_data/scripts/combined_controls.py   # -> $SP/combined_result.txt
-python real_data/scripts/mega_harden.py         # -> $SP/mega_result.txt
-# 2nd-affect control: runs extract_toisoul.py|extract_affect2.py -> $SP/feat_affect2.npz,
-# then second_affect_swap.py which PRINTS -> redirect to capture the log:
-bash real_data/scripts/run_second_affect.sh > "$SP/second_affect_swap_result.txt"
-
-# Face-morph fMRI + single-neuron arm (read SUN2023_DIR)
-python real_data/sun2023/scripts/coverage_gate.py
-python real_data/sun2023/scripts/extract_morph_features.py     # builds its own morph feature cache
-python real_data/sun2023/scripts/sun_rsa.py     # -> $SUN2023_DIR/sun_rsa_result.txt
-python real_data/sun2023/scripts/sun_univar.py  # -> $SUN2023_DIR/sun_univar_result.txt
-python real_data/sun2023/scripts/amyg_neuron_rsa.py > "$SUN2023_DIR/amyg_neuron_rsa_result.txt"
-python real_data/sun2023/scripts/compute_tost.py    > "$SUN2023_DIR/amyg_neuron_tost.txt"
-python real_data/sun2023/scripts/amyg_what.py       > "$SUN2023_DIR/amyg_what_result.txt"
-
-# Audio arm
-python real_data/audio/extract_audio_features.py   # -> $AUDIO_DIR/audio_features.npz
-python real_data/audio/audio_amyg.py               # -> $AMYG_DATA/audio_amyg_result.txt
-
-# Figures (from the numbers above)
-python figures/make_figures.py
+python -m pip install -r requirements.txt
+python -m pytest tests/ -q
+python -m amyg_inv.cli smoke
+python validation/numbers_gate.py
+python validation/robustness_gate.py
 ```
 
-**4. Collect & compare.** The freshly regenerated logs land in `$AMYG_DATA` / `$SUN2023_DIR` /
-`$AUDIO_DIR`, NOT in the repo. Copy them next to the committed evidence logs in
-`real_data/results/`, `real_data/sun2023/results/`, and `real_data/audio/`, and compare
-**verdicts** (signs, significance, TOST equivalence bounds), not bit-identical 4th-decimal
-values (BLAS/MPS differences are expected).
+These test synthetic behavior, input/model contracts and traceability to committed logs. They do not
+regenerate real-data results. CI runs these checks plus the source-path and citation gates.
 
-**5. Static gates (no data needed, run anytime).** `bash validation/presubmit.sh` runs the path
-guard, numbers-gate, robustness re-derivation, citation resolver, and AI-artifact scrub; CI
-(`.github/workflows/validate.yml`) runs the path guard + citation resolver on a cold runner.
-`make test` / `make smoke` exercise the synthetic pipeline.
+For the four real-data arms, use **[real_data/REPRODUCE.md](real_data/REPRODUCE.md)**. That runbook
+specifies the compatible torch/numpy stack, the pinned Kragel EmoNet revision, normalized data paths,
+Toisoul second-affect control and corrected log targets. No input data or weights ship here.
+The reconstructed movie extractor now enforces raw 0–255 RGB and 4096-dimensional `conv_6` features;
+full-data agreement with archived results remains unverified because the original extractor was lost.
+The additional movie DINOv2/CLIP strong-feature cache also has no preserved extraction script.
+Do not interpret successful synthetic/static checks as a complete real-data reproduction.
 
 ## Result log -> manuscript claim map
 
@@ -183,7 +133,7 @@ of the reference run). Verdicts, not 4th-decimals, are the reproducibility targe
 | `real_data/results/shifted_null_result.txt` | The small amygdala effect is temporally specific (misaligned EmoNet -> 0) | — |
 | `real_data/results/combined_result.txt` | **Decisive:** ResNet matches EmoNet in amygdala (p=.38/.17) while EmoNet > ResNet in fusiform; not a face-in-baseline confound | Fig 1 |
 | `real_data/results/mega_result.txt` | Robustness: eroded-mask, hippocampus-bleed control, purged/gapped CV, empirical random null + TOST artifact bound | — |
-| `real_data/results/second_affect_swap_result.txt` | Two affect encoders diverge in amygdala (r -0.26/-0.51), converge in fusiform (r +0.94) -> airtight false floor | Fig 3 |
+| `real_data/results/second_affect_swap_result.txt` | Historical v1.0 convergence values; superseded by the corrected two-encoder/reliability logs above | Historical Fig 3 |
 | `real_data/sun2023/results/sun_rsa_result.txt` | Face-morph RSA: affect encoders not above ResNet in amygdala; large in fusiform/V1 | Fig 1 |
 | `real_data/sun2023/results/sun_univar_result.txt` | Univariate face-morph control | — |
 | `real_data/sun2023/results/sun_profileRDM_result.txt` | Profile-RDM cross-check | — |

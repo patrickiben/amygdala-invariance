@@ -19,7 +19,9 @@ import scipy.io as sio
 from scipy import stats
 S = os.environ.get("SUN2023_DIR", os.path.join(os.environ.get("AMYG_DATA", os.path.expanduser("~/amyg_data")), "sun2023"))
 DEV = "cpu"
-OUT = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "strong_baseline_result.txt"), "w")
+OUTPUT_DIR = os.environ.get("AMYG_OUTPUT", S)
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+OUT = open(os.path.join(OUTPUT_DIR, "strong_baseline_result.txt"), "w")
 def log(*a): s=" ".join(map(str,a)); print(s, flush=True); OUT.write(s+"\n"); OUT.flush()
 
 tifs = sorted(glob.glob(f"{S}/stimuli/Fear-Happy/*.tif"))

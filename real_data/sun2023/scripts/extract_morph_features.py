@@ -1,6 +1,9 @@
 import os,sys,glob,re,numpy as np,torch,torch.nn as nn
 from PIL import Image
 import torchvision.transforms as T, torchvision.models as M
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from amyg_inv.encoders.emonet_contract import load_pinned_emonet_class, emonet_pixels, checked_features
 OLD=os.environ.get("AMYG_DATA", os.path.expanduser("~/amyg_data")); S=os.environ.get("SUN2023_DIR", os.path.join(os.environ.get("AMYG_DATA", os.path.expanduser("~/amyg_data")), "sun2023")); DEV="mps" if torch.backends.mps.is_available() else "cpu"
 tifs=sorted(glob.glob(f"{S}/stimuli/Fear-Happy/*.tif"))
 def lvl(fn):  # index by fe-value itself
@@ -20,12 +23,12 @@ X=torch.stack([torch.from_numpy(np.asarray(im.resize((256,256))).astype(np.float
 with torch.no_grad(): net(X)
 feats["faceEmoNet"]=buf["f"].copy()
 # ---- Kragel EmoNet (4096-d conv_6) ----
-sys.path.insert(0,f"{OLD}/emonet"); from models import EmoNet as KEmoNet
-ke=KEmoNet(); ke.load_state_dict_from_path(f"{OLD}/emonet/emonet_weights.pt"); ke.eval()
+KEmoNet=load_pinned_emonet_class(os.environ.get("EMONET_REPO", f"{OLD}/emonet_pytorch"))
+ke=KEmoNet(); ke.load_state_dict(torch.load(os.environ.get("EMONET_WEIGHTS", f"{OLD}/emonet/emonet.pth"), map_location="cpu", weights_only=True), strict=True); ke.eval()
 kb={}; ke.conv_6.register_forward_hook(lambda m,i,o: kb.__setitem__("f",o.flatten(1).cpu().numpy()))
-tf227=lambda im: torch.from_numpy(np.asarray(im.resize((227,227))).astype(np.float32)).permute(2,0,1)  # correct EmoNet preproc: RGB 0-255, no ImageNet norm
-with torch.no_grad(): ke(torch.stack([tf227(im) for im in imgs]))
-feats["kragelEmoNet"]=kb["f"].copy()
+raw_rgb=np.stack([np.asarray(im.resize((227,227)), dtype=np.uint8) for im in imgs])
+with torch.no_grad(): ke(torch.from_numpy(emonet_pixels(raw_rgb)))
+feats["kragelEmoNet"]=checked_features(kb["f"], len(imgs), 4096, "Kragel EmoNet conv_6").copy()
 # ---- ResNet50 + ViT (object) ----
 tf224=T.Compose([T.Resize(256),T.CenterCrop(224),T.ToTensor(),T.Normalize([0.485,0.456,0.406],[0.229,0.224,0.225])])
 xb=torch.stack([tf224(im) for im in imgs]).to(DEV)
