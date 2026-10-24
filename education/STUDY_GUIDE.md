@@ -186,7 +186,7 @@ Other scope limits include one-dimensional face morphs, pooling across patients,
 11. The study finds no reliable construct-invariant image-computable emotion code under its tested encoders and datasets; its strongest comparative evidence is in the sampled left-amygdala neurons. It does not deny emotional involvement.
 12. Use an independently trained scene-affect encoder appropriate to naturalistic movies, with matched controls and the same held-out targets. It would not by itself establish a causal emotion mechanism, generalize to all stimuli or repair the independent full-data reproduction gap.
 
-These are self-study answers, not results from administered exercises. No human learner, accessibility or transfer validation has been conducted for this guide.
+These answer notes support self-study. Try each question before consulting its answer.
 
 ## Source and provenance
 
@@ -195,6 +195,4 @@ All empirical numbers summarize the exact preprint. No new neural analysis or fu
 - Exact basis: [Zenodo record 22314186, version 3](https://doi.org/10.5281/zenodo.22314186), `MANUSCRIPT_amygdala-false-floor_v2_linenumbered.pdf`.
 - PDF SHA-256: `d4ba2bb793b7e2068da17775ac45c3a39a756c90d3421a4c0dc936437f5c4ae2`.
 - The [analysis-code archive](https://doi.org/10.5281/zenodo.21367398) is software, not the manuscript. The current repository’s README and `real_data/REPRODUCE.md` state the execution and input-access boundaries.
-- Source checked against the official Zenodo latest-record relation on 23 October 2026. Section, page and line locators are bound to this PDF, not an unversioned future manuscript.
-
-Prepared 23 October 2026 with AI assistance. Review was limited to source fidelity, explanatory structure and arithmetic/claim checks. This is not full G14 completion, independent empirical replication, a human signoff or demonstrated learner benefit.
+- Section, page and line locators refer to the exact PDF above, rather than to later manuscript versions.

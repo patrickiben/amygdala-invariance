@@ -13,7 +13,7 @@ stimuli, or model weights (see **Provenance / Data** below).
 Choose the [concise study guide](education/STUDY_GUIDE.md) ([PDF](education/STUDY_GUIDE.pdf))
 for the overview, or the [complete passage-by-passage companion](education/COMPANION.md)
 ([PDF](education/COMPANION.pdf)) for the full teaching route. The [education notes](education/README.md)
-and [coverage map](education/COMPLETE_COVERAGE.md) give exact source provenance and review limits.
+and [coverage map](education/COMPLETE_COVERAGE.md) give exact source provenance and scope.
 
 ## What the code does
 

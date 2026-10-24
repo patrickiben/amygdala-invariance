@@ -6,7 +6,7 @@ This is the full teaching route through Patrick Iben’s *No emotion-specific im
 
 The [concise study guide](STUDY_GUIDE.md) provides the shorter route. This complete companion follows the source in smaller teaching units. Every numbered unit gives a source locator, a passage role, an explanation, an evidence class, reasoning, a boundary, and an answered check. Cross-references connect results to the methods that produce them. Units revisit a finding when the source changes its role: a results paragraph states an estimate; a methods paragraph defines it; a figure teaches how to read it.
 
-The source is a preprint, not a textbook consensus or a clinical recommendation. Empirical figures below are **reported paper outputs**, not new analyses. Examples labeled hypothetical are teaching arithmetic. A source-level claim is not promoted into a stronger biological claim. Reading and arithmetic checks do not establish scientific validity or successful learning. No human learner test, full G14 pass or independent full-data reproduction is claimed.
+The source is a preprint, not a textbook consensus or a clinical recommendation. Empirical figures below are **reported paper outputs**, not new analyses. Examples labeled hypothetical are teaching arithmetic. A source-level claim is not promoted into a stronger biological claim. These explanations do not establish scientific validity or reproduce the full-data analysis.
 
 ### Nonclaims that stay active throughout
 
@@ -564,7 +564,7 @@ The strongest left/session results are emphasized as more robust. The positive-c
 
 One is the preprint’s report about regeneration; the other is the current repository’s verified execution contract. Static log checks can show that manuscript numbers trace to committed outputs. Synthetic tests can check formulas and input shapes. Neither alone establishes a fresh end-to-end reproduction from film and brain data. A learner should ask which layer of the chain has actually been run.
 
-**Evidence type:** author-reported reproduction plus current software limitations. This companion performs source and arithmetic review, not new extraction or neural analysis.
+**Evidence type:** author-reported reproduction plus current software limitations.
 
 **Reasoning or worked illustration:** Consider a hypothetical repository containing a correct output log and a tested function that expects 4,096 features. That can support traceability and a shape contract. It cannot establish that the correct frame preprocessing produced those features in a new environment. The input transformation, caches, estimator and output comparisons are distinct links. A failure at one does not automatically falsify the paper, but an untested link cannot be described as validated.
 
@@ -704,13 +704,13 @@ Its intensity bar is a population bias, not a percentage of strongly tuned neuro
 
 **Plain-language explanation:** The analysis uses public de-identified derivatives and processed firing data. Raw intracranial recordings are request-only for clinical-privacy reasons; the copyrighted movie is not redistributed. Open code therefore does not mean every input is freely bundled or that a reader may redistribute the film. The manuscript reports substantial AI assistance in analysis and drafting under the author’s direction, and assigns responsibility to the author.
 
-This companion also uses AI-assisted preparation. Neither disclosure creates independent human validation. The source’s ethics statement describes the authors’ secondary-analysis position and the original studies’ approvals; this guide does not perform a fresh legal or institutional determination. Funding and competing-interest declarations are publication metadata, not experimental evidence for or against a neural result. The reference list supplies the paper’s scholarly context; the guide teaches the uses made of those references without claiming to have rerun or independently validated every cited study.
+The source’s disclosure does not establish independent human validation. The source’s ethics statement describes the authors’ secondary-analysis position and the original studies’ approvals; this guide does not perform a fresh legal or institutional determination. Funding and competing-interest declarations are publication metadata, not experimental evidence for or against a neural result. The reference list supplies the paper’s scholarly context; the guide teaches the uses made of those references without claiming to have rerun or independently validated every cited study.
 
 **Evidence type:** author disclosures, access statements and bibliographic metadata. These are distinct from measured neural effects, and their truth is not established merely by putting them in an educational narrative.
 
 **Reasoning or worked illustration:** A hypothetical student can inspect a source log and rerun a synthetic function without possessing the original stimulus. That is useful access, but it is not the same as a full-data rerun. A responsible reproduction plan records the missing or restricted link rather than obtaining a substitute film and silently assuming equivalence. Similarly, a model-generated answer key is a teaching artifact, not evidence that actual learners understood the study.
 
-**Boundary/nonclaim:** this companion changes no ethics approval, dataset permission, software license or author responsibility. No institutional signoff, learner study, accessibility clearance or full scientific validation is supplied by this text.
+**Boundary/nonclaim:** an explanation of the declarations does not establish an ethics approval, dataset permission or scientific validity. Consult the original source and data terms.
 
 **Self-check:** What should “openly available code” mean to a reader planning reproduction here?
 
@@ -767,7 +767,7 @@ These source parameters make the methods traceable. They are definitions/setting
 
 ## Twelve answered transfer questions
 
-These questions have not been administered to learners. Their answers illustrate the intended reasoning, not measured learning or transfer.
+Try these questions before reading the answers. They ask you to apply the source’s distinctions to other studies.
 
 1. **A speech model predicts a language region. What comes before calling it a speech-specific code?** Compare suitable non-speech features at a comparable fitting budget, test an independent speech representation and a useful control, and identify what prediction leaves causally unresolved.
 2. **A model’s held-out R² changes from −.020 to −.018. What can you say?** The matched score improves by .002. Neither absolute score beats the mean reference, and the difference does not name the psychological cause.
@@ -782,8 +782,6 @@ These questions have not been administered to learners. Their answers illustrate
 11. **A movie result and its soundtrack result use the same participants. Are they useless because they are not independent?** No. They test different feature/modality questions, but their shared sample must be retained in any replication claim.
 12. **What evidence would improve a bodily-state account of the same region?** Collect relevant bodily/contextual inputs and define a new task/model with independent testing. The present image-computable result neither measures nor rules out that alternative.
 
-## Source and review record
+## Exact source
 
 Exact source: [Zenodo record 22314186, version 3](https://doi.org/10.5281/zenodo.22314186), `MANUSCRIPT_amygdala-false-floor_v2_linenumbered.pdf`, SHA-256 `d4ba2bb793b7e2068da17775ac45c3a39a756c90d3421a4c0dc936437f5c4ae2`. The [code archive](https://doi.org/10.5281/zenodo.21367398) is software, not the manuscript. Source locators use this exact PDF’s pages and printed lines. [COMPLETE_COVERAGE.md](COMPLETE_COVERAGE.md) maps the full source to teaching units and explicitly accounts for references and administrative matter.
-
-This expansion preserves the previously published concise guide as `STUDY_GUIDE.md` and `STUDY_GUIDE.pdf`. The scientific source, data, logs, code and licenses are unchanged. New arithmetic is explanatory and labeled; no new neural results are claimed. Prepared with AI assistance. This is a source-fidelity teaching companion, not a full G14, human learner, accessibility or independent empirical-validation signoff.

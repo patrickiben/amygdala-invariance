@@ -27,7 +27,7 @@ This map accounts for substantive source material without pretending every repea
 | §4.10, pp. 17–18, 682–711 | A25, A27, A34; ledger | Software, frozen specification/deviation, lost features, reported regeneration, logs and access |
 | §4.11, p. 18, 712–736 | A08, A19; ledger | Encoder panels, 136 choices and the movie DINOv2 contrast |
 | §5 Limitations, pp. 18–20, 738–822 | A13, A18–A19, A23, A25, A27–A30 | Every limitation: modest effects, corrected movie, unreliable divergence, estimator, regeneration, partner, strong baseline, image versus state code, one-dimensional stimuli, one audio encoder, nesting, shared stimuli, interoception, dataset gap and emotional involvement |
-| Ethics, availability, funding, interests, AI and author note, pp. 20–21, 824–851 | A27, A34 | Explicitly treated as declarations/access context, not empirical findings or invented human signoffs |
+| Ethics, availability, funding, interests, AI and author note, pp. 20–21, 824–851 | A27, A34 | Explicitly treated as declarations/access context, not empirical findings |
 | Figures 1–4, pp. 21–24, 855–903 | A31–A33; A08–A09, A17–A18, A23 | Every figure/caption: units, approximate errors, point/median/margin, raw convergence and population versus unit tuning |
 | Figure S1 legend, p. 24, 904–909 | A19, A33 | Finite analytic choices and hemisphere boundary; repository image inspected, not asserted embedded in the source PDF |
 | References, pp. 24–25, 910–963 | A02, A29, A34 | Bibliography accounted as the source’s reference index; cited claims explained where used, without a blanket claim of independently auditing every reference |
@@ -42,4 +42,4 @@ A34 identifies declarations, assistance and access restrictions explicitly. It d
 
 ## Status and preservation
 
-The concise MD/PDF remain unchanged as STUDY_GUIDE.*. The parent renders the complete COMPANION.pdf and refreshes ARTIFACTS.json. Scientific sources, data, code and licenses remain unchanged. No full G14, human learning, accessibility or end-to-end empirical-reproduction pass is claimed.
+The [concise guide](STUDY_GUIDE.md) offers an overview. This map identifies the source material developed in the complete companion; it does not establish scientific validity.
