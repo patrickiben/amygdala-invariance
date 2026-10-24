@@ -8,11 +8,12 @@ number, the four publication figures, and the accompanying manuscript itself (fi
 Markdown source, under [`manuscript/`](manuscript/)). It does **not** contain any brain data,
 stimuli, or model weights (see **Provenance / Data** below).
 
-## Educational companion
+## Educational companions
 
-The [plain-language companion](education/COMPANION.md) explains the corrected manuscript’s
-methods, findings and limits, with worked examples and exercises with answers. See its
-[source and review notes](education/README.md) for the exact version and PDF hash.
+Choose the [concise study guide](education/STUDY_GUIDE.md) ([PDF](education/STUDY_GUIDE.pdf))
+for the overview, or the [complete passage-by-passage companion](education/COMPANION.md)
+([PDF](education/COMPANION.pdf)) for the full teaching route. The [education notes](education/README.md)
+and [coverage map](education/COMPLETE_COVERAGE.md) give exact source provenance and review limits.
 
 ## What the code does
 

@@ -1,10 +1,8 @@
-# The amygdala invariance study: education
+# The amygdala invariance study: two reading routes
 
-[Download the companion PDF](COMPANION.pdf).
-
-Learn how the paper separates one encoder’s predictive advantage from cross-encoder agreement, and why session-level evidence and left/right scope matter.
-
-Read [COMPANION.md](COMPANION.md). It is written for readers new to the methods and includes definitions before technical terms, practical examples, six source-guided lessons, and twelve exercises with an answer key. Hypothetical examples are labeled; all empirical findings remain attributed to the source.
+- [Concise study guide](STUDY_GUIDE.md) ([PDF](STUDY_GUIDE.pdf)): the preserved eight-page overview with definitions and exercises.
+- [Complete companion](COMPANION.md) ([PDF](COMPANION.pdf)): thirty-four developed passage-by-passage units covering methods, results, figures, formulas and limitations, with an implementation ledger, glossary and answered transfer test.
+- [Complete coverage map](COMPLETE_COVERAGE.md): source sections/lines mapped to the full teaching units, including reference and administrative handling.
 
 ## Source lock
 

@@ -1,15 +1,38 @@
 {
+  "schema_version": 2,
   "prepared_on": "2026-10-23",
-  "companion_markdown": {
-    "file": "COMPANION.md",
-    "sha256": "860ebe9b8a93ec96dcb5d1845557a6b7fc9e48536f36db750e6fd4ca75c42f61"
+  "editions": {
+    "study_guide": "Concise orientation, key results, boundaries and answered self-checks.",
+    "companion": "Complete source-guided walkthrough; the coverage map specifies all included source material and structural exclusions."
   },
-  "companion_pdf": {
-    "file": "COMPANION.pdf",
+  "study_guide_markdown": {
+    "file": "STUDY_GUIDE.md",
+    "sha256": "860ebe9b8a93ec96dcb5d1845557a6b7fc9e48536f36db750e6fd4ca75c42f61",
+    "words": 3418
+  },
+  "study_guide_pdf": {
+    "file": "STUDY_GUIDE.pdf",
     "sha256": "ae3708574ad49a9100c40abf800e3e4c6d9ee764870a84e172dc181d1422f5fa",
     "pages": 8
   },
+  "companion_markdown": {
+    "file": "COMPANION.md",
+    "sha256": "16b3ccf1183ea12a90d002afe307e4b6e2e2f3632f466f7bdecf11033d0ffa17",
+    "words": 14489
+  },
+  "companion_pdf": {
+    "file": "COMPANION.pdf",
+    "sha256": "f4ab05d1feb16682595db64ef801d65dcb3184b04283e50d127c4f405b5c8e1e",
+    "pages": 31
+  },
+  "complete_coverage": {
+    "file": "COMPLETE_COVERAGE.md",
+    "sha256": "639752bdfc9f404e37db7200ed99c483fecaedc4f80028623c4e13d7e57d4a93"
+  },
   "basis": "Exact manuscript version specified in README.md. Future manuscript versions require a new fidelity check.",
-  "pdf_preparation": "Rendered from companion Markdown using ReportLab; source SHA-256 embedded in PDF metadata",
-  "review_scope": "AI-assisted source fidelity and numerical checks; PDF pages rendered and visually inspected. No human learner or full scientific validation claimed."
+  "pdf_preparation": {
+    "study_guide": "Rendered from Markdown; previously published guide preserved unchanged",
+    "companion": "Expanded complete companion rendered from Markdown, with source SHA-256 in PDF metadata."
+  },
+  "review_scope": "AI-assisted source fidelity, coverage, numerical and document checks. No independent empirical replication, full G14 certification, human learner or accessibility signoff claimed."
 }
